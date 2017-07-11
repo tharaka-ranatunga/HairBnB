@@ -6,3 +6,74 @@
     font-family: Roboto-light;
     src: url(../fonts/roboto/Roboto-light.ttf);
 }
+@font-face {
+    font-family: Arizonia;
+    src: url(../fonts/Arizonia-Regular.ttf);
+}
+@font-face {
+    font-family: Keldex;
+    src: url(../fonts/keldex.otf);
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none !important;
+    background-color: transparent !important;
+    color:#66bb6a !important;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+}
+.nav>li>a {
+    color:#80a5c0 !important;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+}
+#brand:hover{
+    color:#80a5c0 !important;
+    -webkit-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    -o-transition-duration: 1s;
+}
+
+.social:hover {
+    -webkit-transform: scale(1.0);
+    -moz-transform: scale(1.0);
+    -o-transform: scale(1.0);
+}
+.social {
+    -webkit-transform: scale(0.7);
+    /* Browser Variations: */
+    -moz-transform: scale(0.7);
+    -o-transform: scale(0.7);
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+}
+
+/*
+    Multicoloured Hover Variations
+*/
+
+#social-fb:hover {
+    color: #3B5998;
+}
+#social-tw:hover {
+    color: #4099FF;
+}
+#social-gp:hover {
+    color: #d34836;
+}
+#social-em:hover {
+    color: #f39c12;
+}
+
+.btn-primary{
+    background-color:#66bb6a !important;
+    border-color: #66bb6a;
+}
+.btn-primary:hover{
+    background-color: #80a5c0 !important;
+    border-color: #80a5c0;
+
+}

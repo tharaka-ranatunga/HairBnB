@@ -3,11 +3,13 @@
  */
 var login = angular.module('login',[]);
 login.controller('logctrl', function($scope,$http){
+            $scope.sample = false;
+
             $scope.change=function(){
                 if(angular.equals($scope.password,$scope.confirm)){
-                    $scope.con = "*";
+                    $scope.sample = true;
                 }else{
-                    $scope.con = "";
+                    $scope.sample= false;
                 }
             };
             $scope.submit = function(){
