@@ -1,0 +1,73 @@
+<div class="register">
+    <div class="modal fade " id="signup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+         aria-hidden="true" >
+        <div class="modal-dialog" style="max-width: 500px; display: flex; min-height: 70vh;align-items: center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        ×</button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        Sign up</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="Registration">
+                        <form role="form" ng-submit="$ctrl.submit()" class="form-horizontal">
+                            <div class="form-group">
+                                <!--<label for="email" class="col-sm-2 control-label">Email</label>-->
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="first" placeholder="First Name" ng-model="$ctrl.first" required/>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="last" placeholder="Last Name" ng-model="$ctrl.last" required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <!--<label for="email" class="col-sm-2 control-label">Email</label>-->
+                                <div class="col-sm-12">
+                                    <input type="email" class="form-control" id="email" placeholder="Email" ng-model="$ctrl.email" required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <!--<label for="mobile" class="col-sm-2 control-label">Mobile</label>-->
+                                <div class="col-sm-12">
+                                    <input type="password" class="form-control" id="password" placeholder="Password" ng-model='$ctrl.password' ng-change="$ctrl.change()" required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <!--<label for="password" class="col-sm-2 control-label">Password</label>-->
+                                <div class="col-sm-12">
+                                    <input type="password" class="form-control" id="confirm" ng-model="$ctrl.confirm" placeholder="Confirm Password" ng-change="$ctrl.change()" required/>
+                                    <img src="http://wiki.pandorafms.com/images/d/d6/Yes_tick.png" alt="" id="tick" style="float: right; margin-top: -28px; margin-right: 8px" ng-show='$ctrl.tick'>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+
+                                <div class="col-sm-12">
+                                    <input type="checkbox"  id="salon" />
+                                    <label style=" font-family: Roboto-light" for="password" class="control-label">Stylist</label>
+                                    <input type="checkbox" id="stylist" />
+                                    <label style=" font-family: Roboto-light" for="password" class="control-label">Stylist</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <!--<label for="password" class="col-sm-2 control-label">Password</label>-->
+                                <div class="col-sm-12">
+                                    <input type="checkbox" checked id="promotion" />
+                                    <label style=" font-family: Roboto-light" for="password" class="control-label">I'd like to receive promotions, newsletters and future updates</label>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <input class="btn btn-primary" type="submit" value="Sign up" >
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <p></p>
+                                <p ng-show="exists">user exists</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
