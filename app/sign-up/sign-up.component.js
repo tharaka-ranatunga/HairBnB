@@ -16,6 +16,14 @@ angular
                 }
             };
             this.submit=function () {
+                var userRole;
+                if((this.stylist&&this.salon)==1){
+                    userRole=3;
+                }else if(this.stylist==1){
+                    userRole=2;
+                }else{
+                    userRole=1;
+                }
                 var req = {
                     method: 'POST',
                     url: 'http://localhost:3000/insert',
@@ -23,9 +31,13 @@ angular
                         first: this.first,
                         last: this.last,
                         email: this.email,
-                        password:this.password
+                        password:this.password,
+                        role:userRole,
+                        promotion:this.promotion
+
                     }
                 };
+                console.log(this.promotion)
                 $http(req).then(
                     function(resData){
                         if(resData.data.status=='fail'){

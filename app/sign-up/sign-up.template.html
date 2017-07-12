@@ -44,16 +44,16 @@
                             <div class="form-group">
 
                                 <div class="col-sm-12">
-                                    <input type="checkbox"  id="salon" />
-                                    <label style=" font-family: Roboto-light" for="password" class="control-label">Stylist</label>
-                                    <input type="checkbox" id="stylist" />
-                                    <label style=" font-family: Roboto-light" for="password" class="control-label">Stylist</label>
+                                    <input type="checkbox"  id="salon" ng-model="$ctrl.salon"/>
+                                    <label style=" font-family: Roboto-light" for="salon" class="control-label">Salon</label>
+                                    <input type="checkbox" id="stylist" ng-model="$ctrl.stylist"/>
+                                    <label style=" font-family: Roboto-light" for="stylist" class="control-label">Stylist</label>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <!--<label for="password" class="col-sm-2 control-label">Password</label>-->
                                 <div class="col-sm-12">
-                                    <input type="checkbox" checked id="promotion" />
+                                    <input type="checkbox" checked id="promotion" ng-model="$ctrl.promotion" />
                                     <label style=" font-family: Roboto-light" for="password" class="control-label">I'd like to receive promotions, newsletters and future updates</label>
                                 </div>
                             </div>
