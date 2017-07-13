@@ -77,3 +77,7 @@
     border-color: #80a5c0;
 
 }
+.required:after{
+    content:' *';
+    color : red;
+}

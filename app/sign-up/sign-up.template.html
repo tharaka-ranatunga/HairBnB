@@ -15,36 +15,45 @@
                             <div class="form-group">
                                 <!--<label for="email" class="col-sm-2 control-label">Email</label>-->
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="first" placeholder="First Name" ng-model="$ctrl.first" required/>
+                                    <label for="first" style="font-family: Roboto-light" class="required">First Name</label>
+                                    <input type="text" class="form-control" id="first" placeholder="John" ng-model="$ctrl.first" required/>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="last" placeholder="Last Name" ng-model="$ctrl.last" required/>
+                                    <label for="last" style="font-family: Roboto-light" class="required">Last Name</label>
+                                    <input type="text" class="form-control" id="last" placeholder="Doe" ng-model="$ctrl.last" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <!--<label for="email" class="col-sm-2 control-label">Email</label>-->
                                 <div class="col-sm-12">
-                                    <input type="email" class="form-control" id="email" placeholder="Email" ng-model="$ctrl.email" required/>
+                                    <label for="email" style="font-family: Roboto-light" class="required">Email</label>
+                                    <input type="email" class="form-control " id="email" placeholder="johndoe@example.com" ng-model="$ctrl.email" required/>
+                                    <p ng-show="exists" style="color: red">This email already registered</p>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <!--<label for="mobile" class="col-sm-2 control-label">Mobile</label>-->
                                 <div class="col-sm-12">
-                                    <input type="password" class="form-control" id="password" placeholder="Password" ng-model='$ctrl.password' ng-change="$ctrl.change()" required/>
+                                    <label for="password" style="font-family: Roboto-light" class="required" >Password</label>
+                                    <input type="password" class="form-control" id="password" placeholder="Minimum 5 characters" ng-model='$ctrl.password' ng-change="$ctrl.change()" required pattern=".{5,}" title="5 characters minimum"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <!--<label for="password" class="col-sm-2 control-label">Password</label>-->
                                 <div class="col-sm-12">
+                                    <label for="confirm" style="font-family: Roboto-light" class="required">Confirm Password</label>
                                     <input type="password" class="form-control" id="confirm" ng-model="$ctrl.confirm" placeholder="Confirm Password" ng-change="$ctrl.change()" required/>
                                     <img src="http://wiki.pandorafms.com/images/d/d6/Yes_tick.png" alt="" id="tick" style="float: right; margin-top: -28px; margin-right: 8px" ng-show='$ctrl.tick'>
                                 </div>
 
                             </div>
-                            <div class="form-group">
 
-                                <div class="col-sm-12">
-                                    <input type="checkbox"  id="salon" ng-model="$ctrl.salon"/>
+                            <div class="form-group" required>
+
+                                <div class="col-sm-12" >
+                                    <label for="password" style="font-family: Roboto-light" class="required">User Type</label>
+                                    <br/>
+                                    <input type="checkbox"  id="salon" ng-model="$ctrl.salon" onchange="document.getElementById('sign').disabled !=(document.getElementById('salon').checked && document.getElementById('stylist').checked);" />
                                     <label style=" font-family: Roboto-light" for="salon" class="control-label">Salon</label>
                                     <input type="checkbox" id="stylist" ng-model="$ctrl.stylist"/>
                                     <label style=" font-family: Roboto-light" for="stylist" class="control-label">Stylist</label>
@@ -53,16 +62,12 @@
                             <div class="form-group">
                                 <!--<label for="password" class="col-sm-2 control-label">Password</label>-->
                                 <div class="col-sm-12">
-                                    <input type="checkbox" checked id="promotion" ng-model="$ctrl.promotion" />
+                                    <input type="checkbox" id="promotion" checked ng-model="$ctrl.promotion" />
                                     <label style=" font-family: Roboto-light" for="password" class="control-label">I'd like to receive promotions, newsletters and future updates</label>
                                 </div>
                             </div>
                             <div class="form-group col-lg-4">
-                                <input class="btn btn-primary" type="submit" value="Sign up" >
-                            </div>
-                            <div class="form-group col-lg-4">
-                                <p></p>
-                                <p ng-show="exists">user exists</p>
+                                <input class="btn btn-primary" type="submit" value="Sign up" id="sign" />
                             </div>
                         </form>
                     </div>

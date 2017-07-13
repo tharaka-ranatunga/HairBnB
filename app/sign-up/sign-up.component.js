@@ -7,6 +7,7 @@ angular
         templateUrl:'../sign-up/sign-up.template.html',
         controller:function SignUpController($scope,$http) {
             $scope.exists = false;
+            $scope.suc = false;
             this.tick = false;
             this.change=function () {
                 if(angular.equals(this.password,this.confirm)){
@@ -26,7 +27,7 @@ angular
                 }
                 var req = {
                     method: 'POST',
-                    url: 'http://localhost:3000/insert',
+                    url: 'http://localhost:3000/signup',
                     data: {
                         first: this.first,
                         last: this.last,
@@ -45,7 +46,7 @@ angular
                             console.log(resData.data.status);
 
                         }else{
-                            $scope.exists = false;
+                            $('#signup').modal.hide();
                         }
 
 
