@@ -38,7 +38,6 @@ angular
 
                     }
                 };
-                console.log(this.promotion)
                 $http(req).then(
                     function(resData){
                         if(resData.data.status=='fail'){
@@ -46,10 +45,7 @@ angular
                             console.log(resData.data.status);
 
                         }else{
-                            $('#signup').modal.hide();
                         }
-
-
                     });
             };
         }

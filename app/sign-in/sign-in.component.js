@@ -5,7 +5,10 @@ angular
     .module('signIn')
     .component('signIn',{
             templateUrl:'../sign-in/sign-in.template.html',
-            controller:function SignInController($http) {
+            controller:function SignInController($scope,$http) {
+                this.change=function () {
+                    $scope.signin_message = ""
+                };
                 this.submit=function () {
                     var req = {
                         method: 'POST',
@@ -16,10 +19,14 @@ angular
                         }
                     };
                     $http(req).then(
-                        function(){
-                            console.log("success");
+                        function(resData){
+                            console.log(resData.data.token)
+                        },function (resData) {
+                            $scope.signin_message = resData.data
+
                         });
                 };
+
             }
         }
     );
