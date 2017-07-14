@@ -20,10 +20,10 @@ angular
                     };
                     $http(req).then(
                         function(resData){
-                            AuthService.Login(resData.data.email, resData.data.token, function (callback) {
-                                console.log(callback);
+                            AuthService.Login(resData.data.first_name, resData.data.email, resData.data.token, function (callback) {
+                                $('#signin').modal('hide');
+                                window.location.reload();
                             });
-                            console.log(resData.data.token)
                         },function (resData) {
                             $scope.signin_message = resData.data
 

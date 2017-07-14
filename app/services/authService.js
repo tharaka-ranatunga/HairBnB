@@ -32,9 +32,10 @@ angular.module('myApp')
             }
         }
 
-        function login(email, auth_token, callback) {
+        function login(first_name, email, auth_token, callback) {
             try {
                 $localStorage.currentUser = {
+                    first_name: first_name,
                     email: email,
                     token: auth_token
                 };

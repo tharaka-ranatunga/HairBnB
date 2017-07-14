@@ -26,8 +26,8 @@
                             <div class="form-group">
                                 <!--<label for="email" class="col-sm-2 control-label">Email</label>-->
                                 <div class="col-sm-12">
-                                    <label for="email" style="font-family: Roboto-light" class="required">Email</label>
-                                    <input type="email" class="form-control " id="email" placeholder="johndoe@example.com" ng-model="$ctrl.email" required/>
+                                    <label for="email" style="font-family: Roboto-light" class="required"  >Email</label>
+                                    <input type="email" class="form-control " id="email" placeholder="johndoe@example.com" ng-model="$ctrl.email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required/>
                                     <p ng-show="exists" style="color: red">This email already registered</p>
                                 </div>
                             </div>

@@ -45,6 +45,8 @@ angular
                             console.log(resData.data.status);
 
                         }else{
+                            $('#signin').modal('hide');
+                            window.location.reload();
                         }
                     });
             };

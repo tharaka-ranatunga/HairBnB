@@ -10,6 +10,7 @@
     <script src="../vendor/bootstrap.js"></script>
     <script src="../vendor/angular.js"></script>
     <script src="../app.js"></script>
+    <script src="../controllers/authController.js"></script>
     <script src="../sign-up/sign-up.module.js"></script>
     <script src="../sign-up/sign-up.component.js"></script>
     <script src="../sign-in/sign-in.module.js"></script>
@@ -21,7 +22,7 @@
 
 </head>
 
-<body style="font-family: Roboto">
+<body style="font-family: Roboto" ng-controller="MainController">
 
 <div class="menu">
     <nav class="navbar navbar-default" style="background-color: transparent;border: none; font-size: 11pt">
@@ -46,8 +47,15 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right" >
                     <li><a href="#">Help</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#signin">Sign in</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#signup">Sign up</a></li>
+                    <li class="dropdown" ng-hide="!(authenticated)" >
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{username}} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#" ng-click="sign_out()">Sign Out</a></li>
+                        </ul>
+                    </li>
+                    <li ng-hide="(authenticated)"><a href="#" data-toggle="modal" data-target="#signin">Sign in</a></li>
+                    <li ng-hide="(authenticated)"><a href="#" data-toggle="modal" data-target="#signup">Sign up</a></li>
                     <!--<li class="dropdown">-->
                     <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>-->
                     <!--<ul class="dropdown-menu">-->
@@ -63,6 +71,7 @@
         </div><!-- /.container-fluid -->
     </nav>
 </div>
+
 <div class="alert alert-success" id="success" hidden>
     <strong>User created successfully</strong> Indicates a successful or positive action.
 </div>
