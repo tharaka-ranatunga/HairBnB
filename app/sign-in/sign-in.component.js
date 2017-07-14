@@ -5,7 +5,7 @@ angular
     .module('signIn')
     .component('signIn',{
             templateUrl:'../sign-in/sign-in.template.html',
-            controller:function SignInController($scope,$http) {
+            controller:function SignInController($scope,$http,AuthService) {
                 this.change=function () {
                     $scope.signin_message = ""
                 };
@@ -20,6 +20,9 @@ angular
                     };
                     $http(req).then(
                         function(resData){
+                            AuthService.Login(resData.data.email, resData.data.token, function (callback) {
+                                console.log(callback);
+                            });
                             console.log(resData.data.token)
                         },function (resData) {
                             $scope.signin_message = resData.data

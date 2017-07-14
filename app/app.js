@@ -3,5 +3,7 @@
  */
 var myApp = angular.module('myApp',[
     'signUp',
-    'signIn'
+    'signIn',
+    'ngStorage',
+    'ui.router'
 ]);
