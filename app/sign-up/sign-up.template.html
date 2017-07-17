@@ -11,7 +11,7 @@
                 </div>
                 <div class="modal-body">
                     <div id="Registration">
-                        <form role="form" ng-submit="$ctrl.submit()" class="form-horizontal">
+                        <form role="form" ng-submit="$ctrl.submit()" class="form-horizontal" name="signup_form">
                             <div class="form-group">
                                 <!--<label for="email" class="col-sm-2 control-label">Email</label>-->
                                 <div class="col-sm-6">
@@ -20,22 +20,24 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="last" style="font-family: Roboto-light" class="required">Last Name</label>
-                                    <input type="text" class="form-control" id="last" placeholder="Doe" ng-model="$ctrl.last" required/>
+                                    <input type="text" class="form-control" id="last" placeholder="Doe"  ng-model="$ctrl.last" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <!--<label for="email" class="col-sm-2 control-label">Email</label>-->
                                 <div class="col-sm-12">
-                                    <label for="email" style="font-family: Roboto-light" class="required"  >Email</label>
-                                    <input type="email" class="form-control " id="email" placeholder="johndoe@example.com" ng-model="$ctrl.email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required/>
+                                    <label for="email" style="font-family: Roboto-light" class="required" >Email</label>
+                                    <input type="email" name="email" class="form-control " ng-change="testt()" id="email" placeholder="johndoe@example.com" ng-model="$ctrl.email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required/>
                                     <p ng-show="exists" style="color: red">This email already registered</p>
+                                    <img src="http://wiki.pandorafms.com/images/d/d6/Yes_tick.png" alt="" style="float: right; margin-top: -28px; margin-right: 8px" ng-show="!(signup_form.email.$error.email) && email_error" >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <!--<label for="mobile" class="col-sm-2 control-label">Mobile</label>-->
                                 <div class="col-sm-12">
-                                    <label for="password" style="font-family: Roboto-light" class="required" >Password</label>
-                                    <input type="password" class="form-control" id="password" placeholder="Minimum 5 characters" ng-model='$ctrl.password' ng-change="$ctrl.change()" required pattern=".{5,}" title="5 characters minimum"/>
+                                    <label for="password" style="font-family: Roboto-light;" class="required" >Password</label>
+                                    <input type="password" class="form-control" id="password" placeholder="Minimum 5 characters" ng-model='$ctrl.password' ng-change="$ctrl.pass()" required pattern=".{5,}" title="5 characters minimum"/>
+                                    <img src="http://wiki.pandorafms.com/images/d/d6/Yes_tick.png" alt="" style="float: right; margin-top: -28px; margin-right: 8px" ng-show="$ctrl.passw" >
                                 </div>
                             </div>
                             <div class="form-group">
@@ -52,6 +54,7 @@
 
                                 <div class="col-sm-12" >
                                     <label for="password" style="font-family: Roboto-light" class="required">User Type</label>
+                                    <a href="#" data-toggle="popover"  data-content="Register as a salon to get services from stylists or register as a stylist to start working"><span class="glyphicon glyphicon-question-sign" style="color: darkgrey"></span></a>
                                     <br/>
                                     <input type="checkbox"  id="salon" ng-model="$ctrl.salon" onchange="document.getElementById('sign').disabled !=(document.getElementById('salon').checked && document.getElementById('stylist').checked);" />
                                     <label style=" font-family: Roboto-light" for="salon" class="control-label">Salon</label>
@@ -73,6 +76,12 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover();
+    });
+</script>

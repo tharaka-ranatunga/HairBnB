@@ -1,7 +1,7 @@
 /**
  * Created by tharaka_ra on 7/14/2017.
  */
-myApp.controller('MainController',['$scope','$http','AuthService', '$localStorage', function ($scope, $http, AuthService, $localStorage) {
+myApp.controller('MainController',['$scope','$http','AuthService', function ($scope, $http, AuthService) {
     $scope.authenticated = false;
 
     var user = AuthService.getUser();

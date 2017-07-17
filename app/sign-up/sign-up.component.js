@@ -8,13 +8,22 @@ angular
         controller:function SignUpController($scope,$http) {
             $scope.exists = false;
             $scope.suc = false;
+            $scope.yes = "sdf";
+            $scope.email_error = false;
             this.tick = false;
+            this.passw = false;
             this.change=function () {
                 if(angular.equals(this.password,this.confirm)){
                     this.tick = true;
                 }else{
                     this.tick= false;
                 }
+            };
+            $scope.testt=function () {
+                $scope.email_error = true;
+            };
+            this.pass=function () {
+                this.passw = true;
             };
             this.submit=function () {
                 var userRole;
@@ -31,7 +40,7 @@ angular
                     data: {
                         first: this.first,
                         last: this.last,
-                        email: this.email,
+                        email: $scope.email,
                         password:this.password,
                         role:userRole,
                         promotion:this.promotion
@@ -42,7 +51,6 @@ angular
                     function(resData){
                         if(resData.data.status=='fail'){
                             $scope.exists = true;
-                            console.log(resData.data.status);
 
                         }else{
                             $('#signin').modal('hide');

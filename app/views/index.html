@@ -18,7 +18,11 @@
     <script src="../vendor/angular-ui-router.min.js"></script>
     <script src="../vendor/ngStorage.min.js"></script>
     <script src="../services/authService.js"></script>
+    <script src="../vendor/angular-route.js"></script>
+    <!---->
+    <script src="../app.config.js"></script>
 
+    <base href="/HairBnB/app/views/">
 
 </head>
 
@@ -49,19 +53,19 @@
                     <li><a href="#">Help</a></li>
                     <li  ng-hide="!(authenticated)" >
 
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                             <img src="../assets/images/default.png" alt="" class="img-circle" style="width: 30px; margin-top: -7px; right: 0">
                             {{username}}</a>
 
                         <ul class="dropdown-menu" id="user_dropdown">
                             <li><a href="">Dashboard</a></li>
-                            <li><a href="">Edit Profile</a></li>
+                            <li><a href="/HairBnB/app/views/#!/profile">My Profile</a></li>
                             <li><a href="">Account and Settings</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="#" ng-click="sign_out()">Sign Out</a></li>
                         </ul>
                     </li>
-                    <li ng-hide="(authenticated)"><a href="#" data-toggle="modal" data-target="#signin">Sign in</a></li>
+                    <li ng-hide="(authenticated)"><a href="#" data-toggle="modal" data-target="#signin" style = "background-size: contain">Sign in</a></li>
                     <li ng-hide="(authenticated)"><a href="#" data-toggle="modal" data-target="#signup">Sign up</a></li>
                     <!--<li class="dropdown">-->
                     <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>-->
@@ -79,18 +83,12 @@
     </nav>
 </div>
 
-<div class="alert alert-success" id="success" hidden>
-    <strong>User created successfully</strong> Indicates a successful or positive action.
-</div>
 <sign-up></sign-up>
 
 <sign-in></sign-in>
 
-<div id="wrap">
-    <form action="" autocomplete="on">
-        <input id="search" name="search" type="text" placeholder="What're we looking for ?"><input id="search_submit" value="Rechercher" type="submit">
-    </form>
-</div>
+
+<div ng-view></div>
 
 <div class="footer" style="opacity: 0.7">
     <div style="height: 220px; background-color:#80a5c0; position: absolute;right: 0;bottom: 0;left: 0;padding: 1rem;color: white">
