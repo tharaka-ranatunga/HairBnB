@@ -8,5 +8,6 @@ myApp.config(['$routeProvider', function($routeProvider){
         //Search Page
         templateUrl : "profile.html"
     })
+    
 
 }]);
