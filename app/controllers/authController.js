@@ -3,6 +3,7 @@
  */
 myApp.controller('MainController',['$scope','$http','AuthService', function ($scope, $http, AuthService) {
     $scope.authenticated = false;
+    $scope.user_salon = false;
 
     var user = AuthService.getUser();
     if (user) {
@@ -18,6 +19,10 @@ myApp.controller('MainController',['$scope','$http','AuthService', function ($sc
     $scope.sign_out = function () {
         AuthService.Logout();
     };
+
+    if(user.role == 1){
+        $scope.user_salon=true;
+    }
 
 
 }]);

@@ -32,11 +32,12 @@ angular.module('myApp')
             }
         }
 
-        function login(first_name, email, auth_token, callback) {
+        function login(first_name, email, auth_token, role, callback) {
             try {
                 $localStorage.currentUser = {
                     first_name: first_name,
                     email: email,
+                    role: role,
                     token: auth_token
                 };
                 $http.defaults.headers.common.Authorization = 'JWT ' + auth_token;
