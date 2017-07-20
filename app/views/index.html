@@ -23,6 +23,7 @@
     <script src="../services/authService.js"></script>
     <script src="../app.config.js"></script>
     <script src="../controllers/authController.js"></script>
+    <script src="../controllers/profileController.js"></script>
 
     <!--signup-->
     <script src="../sign-up/sign-up.module.js"></script>
@@ -74,6 +75,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right" >
                     <li><a href="#">Help</a></li>
+                    <li ng-hide="user_salon || !(authenticated)"><a href="/HairBnB/app/views/#!/create">Become a Stylist</a></li>
                     <li  ng-hide="!(authenticated)" >
 
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="text-transform: capitalize;">
@@ -83,7 +85,6 @@
                         <ul class="dropdown-menu" id="user_dropdown">
                             <li><a href="">Dashboard</a></li>
                             <li ng-show="user_salon"><a href="/HairBnB/app/views/#!/profile">My Profile</a></li>
-                            <li ng-hide="user_salon"><a>Become a Stylist</a></li>
                             <li><a href="">Account and Settings</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="#" ng-click="sign_out()">Sign Out</a></li>

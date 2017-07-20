@@ -12,6 +12,10 @@ myApp.config(['$routeProvider', function($routeProvider){
             //Search Page
             templateUrl : "home.html"
         })
+        .when("/create", {
+            //Crate Profile
+            templateUrl : "create_profile.html"
+        })
     
 
 }]);

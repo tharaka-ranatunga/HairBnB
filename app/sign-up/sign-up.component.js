@@ -30,9 +30,9 @@ angular
                 if((this.stylist&&this.salon)==1){
                     userRole=3;
                 }else if(this.stylist==1){
-                    userRole=2;
-                }else{
                     userRole=1;
+                }else{
+                    userRole=2;
                 }
                 var req = {
                     method: 'POST',
@@ -40,7 +40,7 @@ angular
                     data: {
                         first: this.first,
                         last: this.last,
-                        email: $scope.email,
+                        email: this.email,
                         password:this.password,
                         role:userRole,
                         promotion:this.promotion

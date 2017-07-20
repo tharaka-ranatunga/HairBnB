@@ -1,0 +1,54 @@
+<script src="../vendor/less.min.js"></script>
+<link rel="stylesheet/less" href="../assets/css/main.less">
+
+<div style="height: 1000px" ng-controller="ProfileController">
+    <div class="col-lg-8 col-lg-offset-2">
+        <h3 style="font-family: Roboto; color: #80a5c0">
+            Complete your profile to get started
+        </h3>
+
+
+        <form ng-submit="sub()">
+            <h4>Select job type</h4>
+            <div class="col-lg-12">
+
+
+
+                <div class="col-lg-12">
+                    <input ng-model="b1" type="checkbox" ><label>Stylist</label>
+                    <div ng-show="b1">
+                        <input type="text" placeholder="Price per day" ng-model="stylistfee" >
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <input ng-model="b2" type="checkbox" ><label>Educator</label>
+                    <div ng-show="b2">
+                        <input type="text" placeholder="Price per day" ng-model="educatorfee" id="educatorfee" >
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <input ng-model="b3" type="checkbox"  ><label>Assistant</label>
+                    <div ng-show="b3">
+                        <input type="text" placeholder="Price per day" ng-model="assistantfee" >
+                    </div>
+                </div>
+            </div>
+
+
+            <!--<div class="col-sm-5">-->
+            <!--<button type="checkbox" ng-model="tttt"class="btn btn-lg btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" >-->
+            <!--<div class="handle" ></div>-->
+            <!--</button>-->
+            <!--</div>-->
+
+            <h4>Description</h4>
+            <textarea class="col-lg-12 panel-default" style="resize: none; height: 100px" ng-model="description" ></textarea>
+            <button class="btn-primary" type="submit">submit</button>
+        </form>
+
+
+
+    </div>
+
+</div>
