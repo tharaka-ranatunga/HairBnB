@@ -9,7 +9,7 @@
 
 
         <form ng-submit="sub()">
-            <h4>Select job type</h4>
+            <h4>Select job types you want to work</h4>
             <div class="col-lg-12">
 
 
@@ -17,24 +17,25 @@
                 <div class="col-lg-12">
                     <input ng-model="b1" type="checkbox" ><label>Stylist</label>
                     <div ng-show="b1">
-                        <input type="text" placeholder="Price per day" ng-model="stylistfee" >
+                        <input type="number" placeholder="Price per day" ng-model="stylistfee" >
                     </div>
                 </div>
 
                 <div class="col-lg-12">
                     <input ng-model="b2" type="checkbox" ><label>Educator</label>
                     <div ng-show="b2">
-                        <input type="text" placeholder="Price per day" ng-model="educatorfee" id="educatorfee" >
+                        <input type="number" placeholder="Price per day" ng-model="educatorfee" id="educatorfee" >
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <input ng-model="b3" type="checkbox"  ><label>Assistant</label>
                     <div ng-show="b3">
-                        <input type="text" placeholder="Price per day" ng-model="assistantfee" >
+                        <input type="number" placeholder="Price per day" ng-model="assistantfee" >
                     </div>
                 </div>
             </div>
 
+            <h4>Select skills you have</h4>
 
             <!--<div class="col-sm-5">-->
             <!--<button type="checkbox" ng-model="tttt"class="btn btn-lg btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" >-->

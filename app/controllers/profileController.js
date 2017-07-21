@@ -8,29 +8,29 @@ myApp.controller('ProfileController',['$scope','$http','AuthService', function (
         var educatorfee = $scope.educatorfee;
         var assistantfee = $scope.assistantfee;
         console.log(email, description, stylistfee, educatorfee, assistantfee);
-        // var req = {
-        //     method: 'POST',
-        //     url: 'http://localhost:3000/signup',
-        //     data: {
-        //         first: this.first,
-        //         last: this.last,
-        //         email: this.email,
-        //         password:this.password,
-        //         role:userRole,
-        //         promotion:this.promotion
-        //
-        //     }
-        // };
-        // $http(req).then(
-        //     function(resData){
-        //         if(resData.data.status=='fail'){
-        //             $scope.exists = true;
-        //
-        //         }else{
-        //             $('#signin').modal('hide');
-        //             window.location.reload();
-        //         }
-        //     });
+        var req = {
+            method: 'POST',
+            url: 'http://localhost:3000/createprofile',
+            data: {
+                description: description,
+                skills: [2,3],
+                job_types: [3,4],
+                payment_email:"tharaka@gmail.com",
+                price_job_types:[2,3]
+
+            }
+        };
+        $http(req).then(
+            function(resData){
+                console.log(resData);
+                // if(resData.data.status=='fail'){
+                //     $scope.exists = true;
+                //
+                // }else{
+                //     $('#signin').modal('hide');
+                //     window.location.reload();
+                // }
+            });
     };
 
 
