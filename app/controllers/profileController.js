@@ -1,4 +1,4 @@
-myApp.controller('ProfileController',['$scope','$http','AuthService', function ($scope, $http,AuthService) {
+myApp.controller('ProfileController',['$scope','$http','AuthService','$location', function ($scope, $http,AuthService,$location) {
 
     $scope.sub=function () {
         var user = AuthService.getUser();
@@ -43,13 +43,8 @@ myApp.controller('ProfileController',['$scope','$http','AuthService', function (
         $http(req).then(
             function(resData){
                 console.log(resData);
-                // if(resData.data.status=='fail'){
-                //     $scope.exists = true;
-                //
-                // }else{
-                //     $('#signin').modal('hide');
-                //     window.location.reload();
-                // }
+                $location.path('/profile');
+
             });
     };
 

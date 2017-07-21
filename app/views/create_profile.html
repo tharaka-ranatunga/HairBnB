@@ -21,7 +21,7 @@
 
 
                         <div class="col-lg-2" style="height: 30px;">
-                            <input ng-model="job1" type="checkbox" ><label>Stylist</label>
+                            <input ng-model="job1" type="checkbox" id="job1"><label for="job1">Stylist</label>
                         </div>
                         <div ng-show="job1" class="col-lg-10" style=" height: 30px;">
                             <input type="number" placeholder="Price per day($)" ng-model="price1" >
@@ -32,19 +32,19 @@
 
 
                 <div class="col-lg-2" style="height: 30px">
-                    <input ng-model="job2" type="checkbox" ><label>Educator</label>
+                    <input ng-model="job2" type="checkbox" id="job2"><label for="job2">Educator</label>
                 </div>
 
                     <div ng-show="job2" class="col-lg-10" style="height: 30px">
-                        <input type="number" placeholder="Price per day" ng-model="price2" id="educatorfee" >
+                        <input type="number" placeholder="Price per day($)" ng-model="price2" id="educatorfee" >
                     </div>
                 <br><br>
 
                 <div class="col-lg-2" style="height: 30px">
-                    <input ng-model="job3" type="checkbox"  ><label>Assistant</label>
+                    <input ng-model="job3" type="checkbox" id="job3" ><label for="job3">Assistant</label>
                 </div>
                     <div ng-show="job3" class="col-lg-10" style="height: 30px">
-                        <input type="number" placeholder="Price per day" ng-model="price3" >
+                        <input type="number" placeholder="Price per day($)" ng-model="price3" >
                     </div>
 
             </div>
@@ -84,7 +84,7 @@
             <!--</div>-->
 
             <br>
-            <button class="btn-primary" type="submit">Create</button>
+            <button class="btn-primary" type="submit" style="float: right">Continue</button>
         </form>
 
 
