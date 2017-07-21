@@ -8,34 +8,74 @@
         </h3>
 
 
-        <form ng-submit="sub()">
-            <h4>Select job types you want to work</h4>
+        <form ng-submit="sub()" style="font-family: Roboto-light">
+            <hr class="col-lg-12" style="">
+            <h4>Describe yourself</h4>
+            <textarea class="col-lg-12 panel-default" style="resize: none; height: 100px" ng-model="description" required></textarea>
+            <hr class="col-lg-12" style="">
+            <h4>Select jobs you can do</h4>
+
             <div class="col-lg-12">
 
 
 
-                <div class="col-lg-12">
-                    <input ng-model="b1" type="checkbox" ><label>Stylist</label>
-                    <div ng-show="b1">
-                        <input type="number" placeholder="Price per day" ng-model="stylistfee" >
-                    </div>
+
+                        <div class="col-lg-2" style="height: 30px;">
+                            <input ng-model="job1" type="checkbox" ><label>Stylist</label>
+                        </div>
+                        <div ng-show="job1" class="col-lg-10" style=" height: 30px;">
+                            <input type="number" placeholder="Price per day($)" ng-model="price1" >
+                        </div>
+                <br>
+                <br>
+
+
+
+                <div class="col-lg-2" style="height: 30px">
+                    <input ng-model="job2" type="checkbox" ><label>Educator</label>
                 </div>
 
-                <div class="col-lg-12">
-                    <input ng-model="b2" type="checkbox" ><label>Educator</label>
-                    <div ng-show="b2">
-                        <input type="number" placeholder="Price per day" ng-model="educatorfee" id="educatorfee" >
+                    <div ng-show="job2" class="col-lg-10" style="height: 30px">
+                        <input type="number" placeholder="Price per day" ng-model="price2" id="educatorfee" >
                     </div>
+                <br><br>
+
+                <div class="col-lg-2" style="height: 30px">
+                    <input ng-model="job3" type="checkbox"  ><label>Assistant</label>
                 </div>
-                <div class="col-lg-12">
-                    <input ng-model="b3" type="checkbox"  ><label>Assistant</label>
-                    <div ng-show="b3">
-                        <input type="number" placeholder="Price per day" ng-model="assistantfee" >
+                    <div ng-show="job3" class="col-lg-10" style="height: 30px">
+                        <input type="number" placeholder="Price per day" ng-model="price3" >
                     </div>
-                </div>
+
             </div>
-
-            <h4>Select skills you have</h4>
+            <hr class="col-lg-12" style="">
+                <h4>Select skills you have</h4>
+                <div class="col-lg-12">
+                    <div class="col-lg-4">
+                        <p>Men:</p>
+                        <div style="font-family: Roboto-light">
+                            <input type="checkbox" ng-model="skill1" id="skill1"> <label for="skill1">Barber</label>  <br>
+                            <input type="checkbox" ng-model="skill2" id="skill2"> <label for="skill2">Freehand</label> <br>
+                            <input type="checkbox" ng-model="skill3"id="skill3">  <label for="skill3">Razor</label> <br>
+                            <input type="checkbox" ng-model="skill4"id="skill4"> <label for="skill4">Shaving</label> <br>
+                            <input type="checkbox" ng-model="skill5"id="skill5">  <label for="skill5">Scissor over comb</label> <br>
+                            <input type="checkbox" ng-model="skill6"id="skill6">  <label for="skill6">Texturing</label> <br>
+                            <input type="checkbox" ng-model="skill7"id="skill7"> <label for="skill7">Clipper work</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <p>Women:</p>
+                        <div style="">
+                            <input type="checkbox" ng-model="skill8" id="skill8"> <label for="skill8">Classics</label>  <br>
+                            <input type="checkbox" ng-model="skill9" id="skill9"> <label for="skill9">Dry cutting</label> <br>
+                            <input type="checkbox" ng-model="skill10"id="skill10">  <label for="skill10">Wig cutting</label> <br>
+                            <input type="checkbox" ng-model="skill11"id="skill11"> <label for="skill11">Long hair</label> <br>
+                            <input type="checkbox" ng-model="skill12"id="skill12">  <label for="skill12">Short hair</label> <br>
+                            <input type="checkbox" ng-model="skill13"id="skill13">  <label for="skill13">Makeup</label> <br>
+                            <input type="checkbox" ng-model="skill14"id="skill14"> <label for="skill14">Hair coloring</label>
+                        </div>
+                    </div>
+                </div>
 
             <!--<div class="col-sm-5">-->
             <!--<button type="checkbox" ng-model="tttt"class="btn btn-lg btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" >-->
@@ -43,9 +83,8 @@
             <!--</button>-->
             <!--</div>-->
 
-            <h4>Description</h4>
-            <textarea class="col-lg-12 panel-default" style="resize: none; height: 100px" ng-model="description" ></textarea>
-            <button class="btn-primary" type="submit">submit</button>
+            <br>
+            <button class="btn-primary" type="submit">Create</button>
         </form>
 
 
