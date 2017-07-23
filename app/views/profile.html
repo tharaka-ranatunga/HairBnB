@@ -1,7 +1,7 @@
 <script src="../main.js"></script>
 
 <img src="../assets/images/cover.jpg" alt=""  style="width: 100%">
-<div class="container-fluid" style="font-family: Roboto">
+<div class="container-fluid" style="font-family: Roboto" ng-controller="ProfileController" ng-init="onInit()">
 
     <!--<div id="carousel-example-generic" class="carousel slide col-lg-8 col-lg-offset-2 " data-ride="carousel">-->
 
@@ -40,74 +40,73 @@
 
     <div class="col-lg-8 col-lg-offset-2" style="margin-top: -100px; height: 1000px" >
         <div class="col-lg-12">
-            <div class="col-lg-3" style=" ">
+            <div class="col-lg-4" style="">
                 <div style="text-align: center">
                     <img src="../assets/images/stylist.jpg" alt="" class="img-circle" style="height: 180px">
-                    <h1 id="title" style="text-transform: capitalize">{{username}}</h1>
-                    <p id="author">tharaka.kamal@gmail.com
-                    </p>
+
                 </div>
-                <br><br><br>
             </div>
-            <div class="col-lg-9" style="margin-top: 120px">
-                <button id="editBtn" type="button" style="float: right">Enable Editing</button>
+            <div class="col-lg-8" style="margin-top: 95px">
+                <h1 id="title" style="text-transform: capitalize">{{username}}</span></h1>
+                <p id="author" style="margin-bottom: 10px">{{useremail}}
+
             </div>
         </div>
+        <br>
 
         <div class="col-lg-12">
-            <div class="col-lg-3">
-                <h4 class="col-lg-9">Job Types<span ></span>
-                </h4>
-                <br>
-                <div class="col-lg-12">
-                    <div class="col-lg-12">
-                        <input ng-model="b1" type="checkbox" ><label>Stylist</label>
-                        <div ng-show="b1">
-                            <input type="text" placeholder="Price per day" ng-model="stylistfee" >
-                        </div>
-                    </div>
+            <h4 >Bio </h4>
 
-                    <div class="col-lg-12">
-                        <input ng-model="b2" type="checkbox" ><label>Educator</label>
-                        <div ng-show="b2">
-                            <input type="text" placeholder="Price per day" ng-model="educatorfee" id="educatorfee" >
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <input ng-model="b3" type="checkbox"  ><label>Assistant</label>
-                        <div ng-show="b3">
-                            <input type="text" placeholder="Price per day" ng-model="assistantfee" >
-                        </div>
-                    </div>
+            <p id="content" style="text-align: justify">{{bio}}</p>
+
+            <h4 style="margin-top: 20px">Job Types</h4>
+            <div class="col-lg-12">
+
+                <div class="col-lg-4">
+                    <p ng-show="type1">Stylist:</p>
+                    <p ng-show="type2">Educator:</p>
+                    <p ng-show="type3">Assistant:</p>
+                </div>
+                <div class="col-lg-4">
+                    <p ng-show="type1">{{price1}}</p>
+                    <p ng-show="type2">{{price2}}</p>
+                    <p ng-show="type3">{{price3}}</p>
 
                 </div>
-                <br>
-
-                <h4 class="col-lg-9">Skills <span ></span>
-                </h4>
-                <a href="" class="col-lg-3"><span class="glyphicon-plus">Add </span>
-                </a>
-                <br>
-                <div class="col-lg-12">
-                    <p>Hair Coloring
-                    </p>
-                    <p>Hair Rebonding
-                    </p>
-                    <p>Hair Waxing
-                    </p>
-
-                </div>
-
-
             </div>
-                <div id="editDocument" class="col-lg-9">
-
-                    <p id="content" style="text-align: justify">We are client intimacy business that seeks to create a high end service for our clients and a rewarding and engaging environment for our Team/Talent.
-                        We are a dedicated Team of professional with international and local experience and education.
-                        Since 1998 we have trained and qualified a large number of apprentices, most of whom have gone on to international careers or to own there own business. </p>
 
 
+                <h4 style="margin-top: 30px" >Skills </h4>
+
+            <div class="col-lg-12">
+            <div class="col-lg-4">
+                <p>Men:</p>
+                <div style="font-family: Roboto-light">
+                    <h5 ng-show="skill1">Barber</h5>
+                    <h5 ng-show="skill2">Freehand</h5>
+                    <h5 ng-show="skill3">Razor</h5>
+                    <h5 ng-show="skill4">Shaving</h5>
+                    <h5 ng-show="skill5">Scissor over comb</h5>
+                    <h5 ng-show="skill6">Texturing</h5>
+                    <h5 ng-show="skill7">Clipper work</h5>
                 </div>
+            </div>
+            <div class="col-lg-4">
+                <p>Women:</p>
+                <div style="font-family: Roboto-light">
+                    <h5 ng-show="skill8">Classics</h5>
+                    <h5 ng-show="skill9">Dry cutting</h5>
+                    <h5 ng-show="skill10">Wig cutting</h5>
+                    <h5 ng-show="skill11">Long hair</h5>
+                    <h5 ng-show="skill12">Short hair</h5>
+                    <h5 ng-show="skill13">Makeup</h5>
+                    <h5 ng-show="skill14">Hair coloring</h5>
+                </div>
+            </div>
+            </div>
+
+        </div>
+
         </div>
 
 
@@ -142,7 +141,8 @@
 
     <!--</div>-->
 
-</div>
+
+
 
 
 

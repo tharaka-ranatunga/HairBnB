@@ -22,7 +22,7 @@ myApp.config(['$routeProvider', function($routeProvider){
                     }else{
                         $http({
                             method: "GET",
-                            url: "http://localhost:3000/getProfile"
+                            url: "http://localhost:3000/profile/getProfile"
                         }).then(function (resData){
                             console.log('Return Data: ' + resData);
                             $location.path('/profile');
@@ -51,13 +51,12 @@ myApp.config(['$routeProvider', function($routeProvider){
                     }else{
                         $http({
                             method: "GET",
-                            url: "http://localhost:3000/getProfileStatus"
+                            url: "http://localhost:3000/profile/getProfileStatus"
                         }).then(function (resData){
                             console.log('Server status [/profile]: ' + resData.status);
                         },function (error){
                             if(error.status===404){
                                 $location.path('/profile/create');
-                                console.log('No profile found for user, creating now');
                             }else {
                                 console.log('Sever connection error occurred, redirecting to home');
                                 $location.path('/');
