@@ -25,7 +25,7 @@ angular
                                 window.location.reload();
                             });
                         },function (resData) {
-                            $scope.signin_message = resData.data
+                            $scope.signin_message = resData.data.error
 
                         });
                 };

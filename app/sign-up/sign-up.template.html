@@ -16,30 +16,37 @@
                                 <!--<label for="email" class="col-sm-2 control-label">Email</label>-->
                                 <div class="col-sm-6">
                                     <label for="first" style="font-family: Roboto-light" class="required">First Name</label>
-                                    <input type="text" class="form-control" id="first" placeholder="John" ng-model="$ctrl.first" required/>
+                                    <input type="text" class="form-control" id="first" placeholder="John" ng-model="$ctrl.first" ng-change="$ctrl.validation()" required/>
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="last" style="font-family: Roboto-light" class="required">Last Name</label>
-                                    <input type="text" class="form-control" id="last" placeholder="Doe"  ng-model="$ctrl.last" required/>
+                                    <input type="text" class="form-control" id="last" placeholder="Doe"  ng-model="$ctrl.last" ng-change="$ctrl.validation()" required/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <!--<label for="email" class="col-sm-2 control-label">Email</label>-->
                                 <div class="col-sm-12">
                                     <label for="email" style="font-family: Roboto-light" class="required" >Email</label>
-                                    <input type="email" name="email" class="form-control " ng-change="testt()" id="email" placeholder="johndoe@example.com" ng-model="$ctrl.email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required/>
+                                    <input type="email" name="email" class="form-control "
+                                           ng-change="testt(); $ctrl.validation()" ng-model="$ctrl.email"
+                                           id="email" placeholder="johndoe@example.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
+
                                     <p ng-show="exists" style="color: red">This email already registered</p>
+                                    <p ng-show="emailInvalid" style="color: red">This email is not valid</p>
                                     <img src="http://wiki.pandorafms.com/images/d/d6/Yes_tick.png" alt="" style="float: right; margin-top: -28px; margin-right: 8px" ng-show="!(signup_form.email.$error.email) && email_error" >
                                 </div>
                             </div>
+
                             <div class="form-group">
                                 <!--<label for="mobile" class="col-sm-2 control-label">Mobile</label>-->
                                 <div class="col-sm-12">
                                     <label for="password" style="font-family: Roboto-light;" class="required" >Password</label>
-                                    <input type="password" class="form-control" id="password" placeholder="Minimum 5 characters" ng-model='$ctrl.password' ng-change="$ctrl.pass()" required pattern=".{5,}" title="5 characters minimum"/>
-                                    <img src="http://wiki.pandorafms.com/images/d/d6/Yes_tick.png" alt="" style="float: right; margin-top: -28px; margin-right: 8px" ng-show="$ctrl.passw" >
+                                    <input type="password" class="form-control" id="password" placeholder="Minimum 5 characters(atleast 1 digit, lowercase, uppercase)" ng-model='$ctrl.password' ng-change=" $ctrl.validation(); $ctrl.change()" required title="5 characters minimum"/>
+                                    <p ng-show="passwordInvalid" style="color: red">This password is not valid</p>
+                                    <img src="http://wiki.pandorafms.com/images/d/d6/Yes_tick.png" alt="" style="float: right; margin-top: -28px; margin-right: 8px" ng-show="passw" >
                                 </div>
                             </div>
+
                             <div class="form-group">
                                 <!--<label for="password" class="col-sm-2 control-label">Password</label>-->
                                 <div class="col-sm-12">
@@ -57,8 +64,9 @@
                                     <label style=" font-family: Roboto-light" for="password" class="control-label">I'd like to receive promotions, newsletters and future updates</label>
                                 </div>
                             </div>
+
                             <div class="form-group col-lg-4">
-                                <input class="btn btn-primary" type="submit" value="Sign up" id="sign" />
+                                <input class="btn btn-primary" type="submit" value="Sign up" id="sign" ng-disabled='!(firstNameValid && lastNameValid &&  passwordValid && emailValid && passwordMatching && !(signup_form.email.$error.email))' />
                             </div>
                         </form>
                     </div>
