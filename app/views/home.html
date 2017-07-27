@@ -1,21 +1,57 @@
-<div class="container">
-    <div class="dropdown col-lg-4">
-        <label for="">Select </label>
-        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-            <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-            <li><a href="#">HTML</a></li>
-            <li><a href="#">CSS</a></li>
-            <li><a href="#">JavaScript</a></li>
-        </ul>
-    </div>
-    <div class="dropdown col-lg-4">
-        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-            <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-            <li><a href="#">HTML</a></li>
-            <li><a href="#">CSS</a></li>
-            <li><a href="#">JavaScript</a></li>
-        </ul>
+
+<div class="container SearchBox" ng-show="search_section" style="margin-bottom: 290px">
+    <div style="padding-top: 100px">
+        <div class="form-group" ng-controller="SearchController">
+            <div class="col-lg-12">
+                <div class="col-lg-4 col-lg-offset-2">
+                    <label for="jobtype">Job Type</label>
+                    <select ng-model="selectedName" class="form-control" name="size" id="jobtype">
+                        <option ng-repeat="item in job_types">{{item}}</option>
+                    </select>
+                </div>
+                <div class="col-lg-4">
+                    <label for="skill">Skills</label>
+                    <select ng-model="selectedSkillName" class="form-control" name="size" id="skill">
+                        <option ng-repeat="item in skill_types">{{item}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-12 text-center">
+                <input type="button" value="Search" ng-click="beginSearch(selectedSkillName,selectedName)" class="btn btn-success" style="width: 300px; margin-top: 20px; margin-bottom: 100px">
+            </div>
+        </div>
     </div>
 </div>
+
+<!--<div class="container">-->
+    <!--<div class="dropdown col-lg-3">-->
+        <!--<label for="">Location</label>-->
+        <!--<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select All-->
+            <!--<span class="caret"></span></button>-->
+        <!--<ul class="dropdown-menu">-->
+            <!--<li><a href="#">HTML</a></li>-->
+            <!--<li><a href="#">CSS</a></li>-->
+            <!--<li><a href="#">JavaScript</a></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<div class="dropdown col-lg-3">-->
+        <!--<label for="">Job type</label>-->
+        <!--<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select All-->
+            <!--<span class="caret"></span></button>-->
+        <!--<ul class="dropdown-menu">-->
+            <!--<li><a href="#">HTML</a></li>-->
+            <!--<li><a href="#">CSS</a></li>-->
+            <!--<li><a href="#">JavaScript</a></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<div class="dropdown col-lg-3">-->
+        <!--<label for="">Skill</label>-->
+        <!--<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select All-->
+            <!--<span class="caret"></span></button>-->
+        <!--<ul class="dropdown-menu">-->
+            <!--<li><a href="#">HTML</a></li>-->
+            <!--<li><a href="#">CSS</a></li>-->
+            <!--<li><a href="#">JavaScript</a></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+<!--</div>-->

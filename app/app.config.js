@@ -67,6 +67,18 @@ myApp.config(['$routeProvider', function($routeProvider){
             }
         })
 
+        .when("/search", {
+            //Profile View Page [Edit]
+            templateUrl : "views/searchresults.html",
+            controller: 'MainController',
+            resolve:{
+                init : function () {
+                    //Nothing here for now
+                    console.log('search results route triggered');
+                }
+            }
+        })
+
 
 
 }]);
