@@ -4,19 +4,20 @@
 myApp.controller('SearchController',
     ['$scope','$http','AuthService','$location',
         function ($scope,$http,AuthService,$location) {
-            $scope.job_types = ["Stylist", "Educator", "Assistant", "Select All"];
-            $scope.skill_types = ["Barber", "Freehand", "Razor", "Shaving", "Scissor over comb",
-                "Texturing", "Clipper work", "Classics", "Dry cutting", "Wig cutting", "Long hair", "Short hair", "Makeup", "Hair coloring","Select All"];
+            $scope.job_types = ["Select All", "Stylist", "Educator", "Assistant", ];
+            $scope.skill_types = ["Select All","Barber", "Freehand", "Razor", "Shaving", "Scissor over comb",
+                "Texturing", "Clipper work", "Classics", "Dry cutting", "Wig cutting", "Long hair", "Short hair", "Makeup", "Hair coloring"];
+            $scope.location_list = ["Select All", "Sydney", "Melbourne", "Adelaide","Victoria", "Queensland" ];
             $scope.selectedName = $scope.job_types[0];
             $scope.selectedSkillName = $scope.skill_types[0];
             $scope.empty_results = false;
 
             $scope.beginSearch = function (skill, jobtype) {
                 var jobtypes, skilltype;
-                if($scope.job_types.indexOf(jobtype)===3){jobtypes = 'all'}
-                else{jobtypes = ($scope.job_types.indexOf(jobtype)+1)}
-                if($scope.skill_types.indexOf(skill)===14){skilltype = 'all'}
-                else{skilltype = ($scope.skill_types.indexOf(skill)+1)}
+                if($scope.job_types.indexOf(jobtype)===0){jobtypes = 'all'}
+                else{jobtypes = ($scope.job_types.indexOf(jobtype))}
+                if($scope.skill_types.indexOf(skill)===0){skilltype = 'all'}
+                else{skilltype = ($scope.skill_types.indexOf(skill))}
                 $location.path('/search').search({jobtype: jobtypes, skilltype: skilltype});
             };
 

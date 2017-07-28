@@ -1,24 +1,32 @@
 
-<div class="container SearchBox" ng-show="true" style="">
-    <div style="padding-top: 100px">
+<div class="" ng-show="true" style="">
+    <div style="padding-top: 200px">
         <div class="form-group" ng-controller="SearchController">
             <div class="col-lg-12">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <label for="jobtype">Job Type</label>
-                    <select ng-model="selectedName" class="form-control" name="size" id="jobtype">
+                <div class="col-lg-3">
+                    <label for="skill" class="col-lg-4" style="margin-top: 7px">Location</label>
+                    <select  class="form-control" name="size" id="location" style="width: 150px">
+                        <option ng-repeat="item in location_list">{{item}}</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 ">
+                    <label for="jobtype" class="col-lg-4" style="margin-top: 7px">JobType</label>
+                    <select ng-model="selectedName" class="form-control" name="size" id="jobtype" style="width: 150px">
                         <option ng-repeat="item in job_types">{{item}}</option>
                     </select>
                 </div>
-                <div class="col-lg-4">
-                    <label for="skill">Skills</label>
-                    <select ng-model="selectedSkillName" class="form-control" name="size" id="skill">
+                <div class="col-lg-3">
+                    <label for="skill" class="col-lg-4" style="margin-top: 7px">Skills</label>
+                    <select ng-model="selectedSkillName" class="form-control" name="size" id="skill" style="width: 150px">
                         <option ng-repeat="item in skill_types">{{item}}</option>
                     </select>
                 </div>
+                <div class="col-lg-3">
+                    <label for="skill"></label>
+                    <input type="button" value="Search" ng-click="beginSearch(selectedSkillName,selectedName)" class="btn btn-success" style="">
+                </div>
             </div>
-            <div class="col-lg-12 text-center">
-                <input type="button" value="Search" ng-click="beginSearch(selectedSkillName,selectedName)" class="btn btn-success" style="width: 300px; margin-top: 20px; margin-bottom: 100px">
-            </div>
+
         </div>
     </div>
 </div>

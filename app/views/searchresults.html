@@ -22,15 +22,15 @@
                 <!--<option value="l1">Short hair</option>-->
             <!--</select>-->
         <!--</div>-->
-        <div class="col-xs-12" style="">
+        <div class="col-xs-12" style="font-family: Roboto">
             <div class="alert alert-success" style="margin-top: 25px" ng-show="empty_results">
                 <strong>No stylist found for your requirement!</strong>
             </div>
-            <div ng-repeat="search_data in search_results">
+            <div ng-repeat="search_data in search_results" style="margin-top: ">
                 <div class="col-xs-12"
                      ng-style="$index < (search_results.length-1) ?
                                                 { 'border-bottom':'1px solid lightgray', 'padding-bottom':'20px'} :
-                                                { 'border-bottom': '1px solid white', 'padding-bottom':'0px'}">
+                                                { 'border-bottom': '1px solid white', 'padding-bottom':'0px'}" style="margin-top: 20px">
                     <div class="col-xs-3">
                         <img src="../assets/images/default.png" style="height: 120px;">
                     </div>
