@@ -48,10 +48,10 @@ myApp.controller('SearchController',
 
                 var query1 = 'typeid=' + job_type;
                 var query2 = 'skillid=' + skill_type;
-                console.log("search url: http://localhost:3000/search/simplesearch?"+ query2 + "&" + query1);
+                console.log("search url: http://localhost:3000/search?"+ query2 + "&" + query1);
                 $http({
                     method: "GET",
-                    url: "http://localhost:3000/search/simplesearch?"+ query2 + "&" + query1
+                    url: "http://localhost:3000/search?"+ query2 + "&" + query1
                 }).then(function (resData){
                     console.log(resData);
                     var users = resData.data.users;

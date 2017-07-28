@@ -69,7 +69,7 @@ myApp.config(['$routeProvider', function($routeProvider){
 
         .when("/search", {
             //Profile View Page [Edit]
-            templateUrl : "views/searchresults.html",
+            templateUrl : "searchresults.html",
             controller: 'MainController',
             resolve:{
                 init : function () {

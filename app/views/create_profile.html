@@ -1,52 +1,43 @@
-<script src="../vendor/less.min.js"></script>
-<link rel="stylesheet/less" href="../assets/css/main.less">
-
 <div  ng-controller="ProfileController">
-    <div class="col-lg-8 col-lg-offset-2">
+    <div  >
+
         <h3 style="font-family: Roboto; color: #80a5c0">
             Complete your profile to get started
         </h3>
 
-
         <form ng-submit="sub()" style="font-family: Roboto-light">
             <hr class="col-lg-12" style="">
             <h4>Describe yourself</h4>
+
             <textarea class="col-lg-12 panel-default" style="resize: none; height: 100px" ng-model="description" required></textarea>
             <hr class="col-lg-12" style="">
             <h4>Select jobs you can do</h4>
-
             <div class="col-lg-12">
+                <div class="col-lg-2" style="height: 30px;">
+                    <input ng-model="job1" type="checkbox" id="job1"><label for="job1">Stylist</label>
+                </div>
 
+                <div ng-show="job1" class="col-lg-10" style=" height: 30px;">
+                    <input type="number" placeholder="Price per day($)" ng-model="price1" >
+                </div>
 
-
-
-                        <div class="col-lg-2" style="height: 30px;">
-                            <input ng-model="job1" type="checkbox" id="job1"><label for="job1">Stylist</label>
-                        </div>
-                        <div ng-show="job1" class="col-lg-10" style=" height: 30px;">
-                            <input type="number" placeholder="Price per day($)" ng-model="price1" >
-                        </div>
-                <br>
-                <br>
-
-
+                <br><br>
 
                 <div class="col-lg-2" style="height: 30px">
                     <input ng-model="job2" type="checkbox" id="job2"><label for="job2">Educator</label>
                 </div>
-
-                    <div ng-show="job2" class="col-lg-10" style="height: 30px">
-                        <input type="number" placeholder="Price per day($)" ng-model="price2" id="educatorfee" >
-                    </div>
+                <div ng-show="job2" class="col-lg-10" style="height: 30px">
+                    <input type="number" placeholder="Price per day($)" ng-model="price2" id="educatorfee" >
+                </div>
                 <br><br>
 
                 <div class="col-lg-2" style="height: 30px">
                     <input ng-model="job3" type="checkbox" id="job3" ><label for="job3">Assistant</label>
                 </div>
-                    <div ng-show="job3" class="col-lg-10" style="height: 30px">
-                        <input type="number" placeholder="Price per day($)" ng-model="price3" >
-                    </div>
 
+                <div ng-show="job3" class="col-lg-10" style="height: 30px">
+                    <input type="number" placeholder="Price per day($)" ng-model="price3" >
+                </div>
             </div>
             <hr class="col-lg-12" style="">
                 <h4>Select skills you have</h4>
@@ -77,11 +68,6 @@
                     </div>
                 </div>
 
-            <!--<div class="col-sm-5">-->
-            <!--<button type="checkbox" ng-model="tttt"class="btn btn-lg btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" >-->
-            <!--<div class="handle" ></div>-->
-            <!--</button>-->
-            <!--</div>-->
 
             <br>
             <button class="btn-primary" type="submit" style="float: right">Continue</button>
