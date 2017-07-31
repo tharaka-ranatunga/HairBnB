@@ -24,7 +24,7 @@ myApp.controller('SearchController',
             $scope.viewProfile = function (id) {
                 var user = AuthService.getUser();
                 if(user) {
-                    if (user.id === id) {
+                    if (user.user_id === id) {
                         $location.path('/profile');
                     } else {
                         $location.path('/profile/view').search({userid: id});
@@ -81,7 +81,7 @@ myApp.controller('SearchController',
                         var disable = false;
                         var user = AuthService.getUser();
                         if(user) {
-                            if (user.id === users[i][0].id) {disable = true;}
+                            if (user.user_id === users[i][0].id) {disable = true;}
                             else {disable = false;}
                         }
 

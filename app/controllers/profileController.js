@@ -52,7 +52,8 @@ myApp.controller('ProfileController',['$scope','$http','AuthService','$location'
         }else{
             $location.path('/');
         }
-    }
+    };
+
     $scope.sub=function () {
         var user = AuthService.getUser();
         var email = user.email;

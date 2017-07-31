@@ -20,7 +20,8 @@ angular
                     };
                     $http(req).then(
                         function(resData){
-                            AuthService.Login(resData.data.first_name, resData.data.email, resData.data.token, resData.data.role, function (callback) {
+                            console.log(resData.data.last_name);
+                            AuthService.Login(resData.data.user_id, resData.data.first_name, resData.data.last_name, resData.data.email, resData.data.token, function (callback) {
                                 $('#signin').modal('hide');
                                 window.location.reload();
                             });

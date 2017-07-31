@@ -4,16 +4,15 @@
 myApp.controller('MainController',['$scope','$http','AuthService', function ($scope, $http, AuthService) {
     $scope.authenticated = false;
     $scope.user_salon = false;
+    $scope.username = '';
+    $scope.lastname = '';
 
     var user = AuthService.getUser();
     if (user) {
         $scope.username = user.first_name;
+        $scope.last_name = user.last_name;
         $scope.useremail = user.email;
-        if(user.role == 1){
-            $scope.user_salon=true;
-        }
-    }else {
-        $scope.username = '';
+        $scope.user_salon=true;
     }
 
     $scope.$watch(AuthService.isLoginStatus, function (newValue) {
@@ -23,10 +22,6 @@ myApp.controller('MainController',['$scope','$http','AuthService', function ($sc
     $scope.sign_out = function () {
         AuthService.Logout();
     };
-
-
-
-
 
 }]);
 

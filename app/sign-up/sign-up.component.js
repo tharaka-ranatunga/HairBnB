@@ -5,7 +5,7 @@ angular
     .module('signUp')
     .component('signUp',{
         templateUrl:'../sign-up/sign-up.template.html',
-        controller:function SignUpController($scope,$http) {
+        controller:function SignUpController($scope,$http, AuthService) {
             $scope.exists = false;
             $scope.emailInvalid = false;
             $scope.passwordInvalid = false;
@@ -89,8 +89,10 @@ angular
                 };
                 $http(req).then(
                     function(resData){
-                            $('#signin').modal('hide');
+                        AuthService.Login(resData.data.user_id, resData.data.first_name, resData.data.last_name, resData.data.email, resData.data.token, function (callback) {
+                            $('#signup').modal('hide');
                             window.location.reload();
+                        });
                     },function (resData) {
                         if (resData.data.error === "Email not valid"){
                             $scope.emailInvalid = true;
