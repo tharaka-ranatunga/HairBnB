@@ -3,84 +3,53 @@
 <img src="../assets/images/cover.jpg" alt=""  style="width: 100%">
 <div class="container-fluid" style="font-family: Roboto" ng-controller="ProfileController" ng-init="onInit()">
 
-    <!--<div id="carousel-example-generic" class="carousel slide col-lg-8 col-lg-offset-2 " data-ride="carousel">-->
-
-        <!--&lt;!&ndash; Indicators &ndash;&gt;-->
-        <!--<ol class="left carousel-indicators">-->
-            <!--<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>-->
-            <!--<li data-target="#carousel-example-generic" data-slide-to="1"></li>-->
-            <!--<li data-target="#carousel-example-generic" data-slide-to="2"></li>-->
-        <!--</ol>-->
-
-        <!--&lt;!&ndash; Wrapper for slides &ndash;&gt;-->
-        <!--<div class="carousel-inner">-->
-            <!--<div class="item active">-->
-                <!--<img src="https://placeholdit.imgix.net/~text?txtsize=40&bg=800000&txtclr=ffffff&txt=SLIDE 1&w=1170&h=300" alt="...">-->
-            <!--</div>-->
-
-            <!--<div class="item">-->
-                <!--<img src="https://placeholdit.imgix.net/~text?txtsize=40&bg=800000&txtclr=ffffff&txt=SLIDE 2&w=1170&h=300" alt="...">-->
-            <!--</div>-->
-
-            <!--<div class="item">-->
-                <!--<img src="https://placeholdit.imgix.net/~text?txtsize=40&bg=800000&txtclr=ffffff&txt=SLIDE 3&w=1170&h=300" alt="...">-->
-            <!--</div>-->
-        <!--</div>-->
-
-        <!--&lt;!&ndash; Controls &ndash;&gt;-->
-        <!--<a class="left carousel-control" href="/profile/#carousel-example-generic" data-slide="prev">-->
-            <!--<span class="glyphicon glyphicon-chevron-left"></span>-->
-        <!--</a>-->
-
-        <!--<a class="right carousel-control" href="/profile/#carousel-example-generic" data-slide="next">-->
-            <!--<span class="glyphicon glyphicon-chevron-right"></span>-->
-        <!--</a>-->
-
-    <!--</div>-->
 
     <div class="" style="margin-top: -100px;" >
             <div class="col-lg-2" style="">
-                <div style="">
-                    <img src="../assets/images/stylist.jpg" alt="" class="img-circle" style="height: 180px">
+                <div style="margin-top: 40px">
+                    <img src="../assets/images/default.png" alt="" class="img-circle" style="height: 180px">
 
                 </div>
             </div>
-            <div class="col-lg-8" style="margin-top: 95px">
+            <div class="col-lg-8" style="margin-top: 105px">
                 <h1 id="title" style="text-transform: capitalize">{{username}} {{last_name}}</span></h1>
-                <p id="author" style="margin-bottom: 10px">{{useremail}}
+                <p id="author" style="margin-bottom: 10px; ">{{useremail}}
 
             </div>
         <br>
 
-        <div class="col-lg-12">
-
-            <h4 >Bio </h4>
-
-            <p id="content" style="text-align: justify">{{bio}}</p>
-
-            <h4 style="margin-top: 20px">Job Types</h4>
-            <div class="col-lg-12">
+        <div class="col-lg-12" style="margin-top: 50px">
+            <div class="col-lg-12 alert alert-info">
 
                 <div class="col-lg-4">
-                    <p ng-show="type1">Stylist:</p>
-                    <p ng-show="type2">Educator:</p>
-                    <p ng-show="type3">Assistant:</p>
+                    <p ng-show="type1">Book me as Stylist</p>
+                    <p ng-show="type1" ><span style="font-size:18pt">${{price1}}</span> per day</p>
                 </div>
                 <div class="col-lg-4">
-                    <p ng-show="type1">{{price1}}</p>
-                    <p ng-show="type2">{{price2}}</p>
-                    <p ng-show="type3">{{price3}}</p>
+                    <p ng-show="type2">Book me as Educator</p>
+                    <p ng-show="type2"><span style="font-size:18pt">${{price2}}</span> per day</p>
+                </div>
+                <div class="col-lg-4">
+                    <p ng-show="type3">Book me as Assistant</p>
+                    <p ng-show="type3"><span style="font-size:18pt">${{price3}}</span> per day</p>
 
                 </div>
             </div>
 
+            <h4 style="margin-top: 150px" >Bio </h4>
 
-                <h4 style="margin-top: 30px" >Skills </h4>
+            <p id="content" style="text-align: justify">{{bio}}</p>
 
-            <div class="col-lg-12">
+            <!--<h4 style="margin-top: 20px">Job Types</h4>-->
+
+
+
+                <h4 style="margin-top: 50px" >Skills </h4>
+
+            <div class="col-lg-12" style="margin-bottom: 50px">
             <div class="col-lg-4">
-                <p>Men:</p>
-                <div style="font-family: Roboto-light">
+                <p style="font-family: Roboto-light">Men:</p>
+                <div >
                     <h5 ng-show="skill1">Barber</h5>
                     <h5 ng-show="skill2">Freehand</h5>
                     <h5 ng-show="skill3">Razor</h5>
@@ -91,8 +60,8 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <p>Women:</p>
-                <div style="font-family: Roboto-light">
+                <p style="font-family: Roboto-light">Women:</p>
+                <div >
                     <h5 ng-show="skill8">Classics</h5>
                     <h5 ng-show="skill9">Dry cutting</h5>
                     <h5 ng-show="skill10">Wig cutting</h5>
@@ -116,9 +85,6 @@
         <!--</div>-->
     </div>
 
-
-
-        </div>
 
 
 

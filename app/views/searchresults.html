@@ -1,3 +1,13 @@
+<style>
+    a:hover{
+        color : #66bb6a;
+        text-decoration: none;
+        -webkit-transition-duration: 0.3s;
+        -moz-transition-duration: 0.3s;
+        -o-transition-duration: 0.3s;
+    }
+</style>
+
 <div style=" margin-top: 50px; min-height: 600px" ng-controller="SearchController" ng-init="onInit()">
         <!--<div class="col-xs-3">-->
             <!--<label for="location">Location</label>-->
@@ -22,37 +32,39 @@
                 <!--<option value="l1">Short hair</option>-->
             <!--</select>-->
         <!--</div>-->
-        <div class="col-xs-12" style="font-family: Roboto">
+        <div class="col-xs-12" style="font-family: Roboto; ">
             <div class="alert alert-success" style="margin-top: 25px" ng-show="empty_results">
                 <strong>No stylist found for your requirement!</strong>
             </div>
-            <div ng-repeat="search_data in search_results" style="margin-top: ">
-                <div class="col-xs-12"
-                     ng-style="$index < (search_results.length-1) ?
-                                                { 'border-bottom':'1px solid lightgray', 'padding-bottom':'20px'} :
-                                                { 'border-bottom': '1px solid white', 'padding-bottom':'0px'}" style="margin-top: 20px">
-                    <div class="col-xs-3">
-                        <img src="../assets/images/default.png" style="height: 120px;">
-                    </div>
-                    <div class="col-xs-9">
-                        <div >
-                            <p style="float: right"><b>{{search_data.price}}</b> per day</p>
-                            <h3 class="">{{search_data.firstname}} {{search_data.lastname}}</h3>
-                            <p>☆☆☆☆☆ &nbsp;&nbsp;{{search_data.rates}}</p>
-                            <div style="float: right; margin-top: -10px">
-                                <input type="button" class="btn btn-success" ng-click="viewProfile(search_data.id)" value="View" style="width: 100px; ">
-                                <!--<input type="button" class="btn btn-success" ng-click="placeOrder(search_data.id)" ng-disabled="search_data.disable" value="Order Now"  style="width: 100px">-->
-                            </div>
-
-                            <!--<p>{{search_data.location}}</p>-->
-
+            <div ng-repeat="search_data in search_results" style="">
+                <div class="col-xs-3 " style="margin-top: 20px; " ng-click="viewProfile(search_data.id)" >
+                    <div class="col-lg-12 panel panel-default">
+                        <img src="../assets/images/profile.jpg" style="width: 100%; margin-top: 15px">
+                        <div class="col-xs-12">
                         </div>
+                        <div class="">
+                            <a >
+                                <h4 style="">{{search_data.firstname}} {{search_data.lastname}}</h4>
 
-                        <!--<p>{{search_data.acctypes}}</p>-->
-                        <!--<p>{{search_data.description}}</p>-->
+                                <!--<div style=" margin-top: -10px">-->
+                                    <!--<input type="button" class="btn btn-primary"  value="View" style="width: 100px; ">-->
+                                    <!--&lt;!&ndash;<input type="button" class="btn btn-success" ng-click="placeOrder(search_data.id)" ng-disabled="search_data.disable" value="Order Now"  style="width: 100px">&ndash;&gt;-->
+                                <!--</div>-->
 
+                                <!--<p>{{search_data.location}}</p>-->
+
+                            </a>
+
+                            <!--<p>{{search_data.acctypes}}</p>-->
+                            <!--<p>{{search_data.description}}</p>-->
+                            <p  style=""> <span class = "glyphicon glyphicon-star" style="color: #ffcc00"></span>&nbsp;{{search_data.rates}}</p>
+                            <p >{{search_data.price}} per day</p>
+                        </div>
                     </div>
+
                 </div>
+
+                </div>
+        </div>
             </div>
         </div>
-</div>

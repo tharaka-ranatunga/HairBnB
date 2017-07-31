@@ -1,70 +1,146 @@
+<img src="../assets/images/cover.jpg" alt=""  style="width: 100%">
 <div class="container" ng-controller="ViewProfileController" ng-init="onInit()">
-    <div class="col-xs-12" style="margin-top: 50px">
-        <div class="col-xs-9" style="border-right: 1px solid lightgray;">
-            <div class="col-xs-12">
-                <div class="col-xs-4" style=" text-align: center">
-                    <img src="../assets/images/default.png" style="height: 120px; margin-bottom: 2px; margin-top:25px; margin-left: 30px">
-                    <p style="font-size: 25px; margin-left: 30px">
-                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                    </p>
-                    <p style="margin-left: 30px; margin-top: -15px">5.0</p>
-                </div>
-                <div class="col-xs-8">
-                    <h1>{{firstname}} {{lastname}}</h1>
-                    <p id="description">{{description}}</p>
-                    <!--<p class="text-info">From Sydney</p>-->
-                </div>
-            </div>
-            <div class="col-xs-6 col-xs-offset-4">
-                <div class="col-xs-12">
-                    <div class="col-xs-12">
-                        <h4 ><b>Job Types</b></h4>
-                        <div style="margin-left: 45px">
-                            <h5  ng-show="type1">Stylist<span style="float: right">  <b>${{price1}} Per Day</b></span></h5>
-                            <h5  ng-show="type2">Educator<span style="float: right">  <b>${{price2}} Per Day</b></span></h5>
-                            <h5  ng-show="type3">Assistant<span style="float: right">  <b>${{price3}} Per Day</b></span></h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12">
-                    <div class="col-xs-6">
-                        <h4 ><b>Skills</b></h4>
-                        <div style="margin-left: 45px">
-                            <h5 ng-show="skill1">Barber</h5>
-                            <h5 ng-show="skill2">Freehand</h5>
-                            <h5 ng-show="skill3">Razor</h5>
-                            <h5 ng-show="skill4">Shaving</h5>
-                            <h5 ng-show="skill5">Scissor over comb</h5>
-                            <h5 ng-show="skill6">Texturing</h5>
-                            <h5 ng-show="skill7">Clipper work</h5>
-                        </div>
-                    </div>
-                    <div class="col-xs-6">
-                        <div style="margin-left: 45px; margin-top: 40px">
-                            <h5 ng-show="skill8">Classics</h5>
-                            <h5 ng-show="skill9">Dry cutting</h5>
-                            <h5 ng-show="skill10">Wig cutting</h5>
-                            <h5 ng-show="skill11">Long hair</h5>
-                            <h5 ng-show="skill12">Short hair</h5>
-                            <h5 ng-show="skill13">Makeup</h5>
-                            <h5 ng-show="skill14">Hair coloring</h5>
-                        </div>
-                    </div>
-                    <div class="col-xs-6">
 
+    <div class="" style="margin-top: -100px;" >
+        <div class="col-lg-2" style="">
+            <div style="margin-top: 40px">
+                <img src="../assets/images/default.png" alt="" class="img-circle" style="height: 180px">
+
+            </div>
+        </div>
+        <div class="col-lg-8" style="margin-top: 105px">
+            <h1 id="title" style="text-transform: capitalize">{{firstname}} {{lastname}}</span></h1>
+
+        </div>
+        <br>
+
+        <div class="col-lg-12" style="margin-top: 50px">
+            <div class="col-lg-12 alert alert-info">
+
+                <div class="col-lg-4">
+                    <p ng-show="type1">Book me as Stylist</p>
+                    <p ng-show="type1" ><span style="font-size:18pt">${{price1}}</span> per day</p>
+                </div>
+                <div class="col-lg-4">
+                    <p ng-show="type2">Book me as Educator</p>
+                    <p ng-show="type2"><span style="font-size:18pt">${{price2}}</span> per day</p>
+                </div>
+                <div class="col-lg-4">
+                    <p ng-show="type3">Book me as Assistant</p>
+                    <p ng-show="type3"><span style="font-size:18pt">${{price3}}</span> per day</p>
+
+                </div>
+            </div>
+
+            <h4 style="margin-top: 150px" >Bio </h4>
+
+            <p id="content" style="text-align: justify">{{description}}</p>
+
+            <!--<h4 style="margin-top: 20px">Job Types</h4>-->
+
+
+
+            <h4 style="margin-top: 50px" >Skills </h4>
+
+            <div class="col-lg-12" style="margin-bottom: 50px">
+                <div class="col-lg-4">
+                    <p style="font-family: Roboto-light">Men:</p>
+                    <div >
+                        <h5 ng-show="skill1">Barber</h5>
+                        <h5 ng-show="skill2">Freehand</h5>
+                        <h5 ng-show="skill3">Razor</h5>
+                        <h5 ng-show="skill4">Shaving</h5>
+                        <h5 ng-show="skill5">Scissor over comb</h5>
+                        <h5 ng-show="skill6">Texturing</h5>
+                        <h5 ng-show="skill7">Clipper work</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <p style="font-family: Roboto-light">Women:</p>
+                    <div >
+                        <h5 ng-show="skill8">Classics</h5>
+                        <h5 ng-show="skill9">Dry cutting</h5>
+                        <h5 ng-show="skill10">Wig cutting</h5>
+                        <h5 ng-show="skill11">Long hair</h5>
+                        <h5 ng-show="skill12">Short hair</h5>
+                        <h5 ng-show="skill13">Makeup</h5>
+                        <h5 ng-show="skill14">Hair coloring</h5>
                     </div>
                 </div>
             </div>
-            <hr class="col-xs-10 col-xs-offset-1">
-            <div class="col-xs-10" style="margin-left:90px">
-                <!--<div class="alert alert-success" style="margin-top: 25px;" ng-show="!success">-->
-                    <!--<strong>Tharaka Ranatunga doesn't have any feedback yet !</strong>-->
+
+        </div>
+
+    </div>
+    <input type="button" class="btn btn-primary" value="Order Now" ng-click="placeOrder()" style="width: 150px; margin-top: 105px">
+
+    <!--<div class="col-xs-12" style="margin-top: 50px">-->
+        <!--<div class="col-xs-9" style="border-right: 1px solid lightgray;">-->
+            <!--<div class="col-xs-12">-->
+                <!--<div class="col-xs-4" style=" text-align: center">-->
+                    <!--<img src="../assets/images/default.png" style="height: 120px; margin-bottom: 2px; margin-top:25px; margin-left: 30px">-->
+                    <!--<p style="font-size: 25px; margin-left: 30px">-->
+                        <!--<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>-->
+                    <!--</p>-->
+                    <!--<p style="margin-left: 30px; margin-top: -15px">5.0</p>-->
                 <!--</div>-->
-            </div>
-        </div>
-        <div class="col-xs-3" style="text-align: center; margin-top: 30px">
-            <input type="button" class="btn btn-success" value="Order Now" ng-click="placeOrder()" style="width: 150px; margin-bottom: 40px">
+                <!--<div class="col-xs-8">-->
+                    <!--<h1>{{firstname}} {{lastname}}</h1>-->
+                    <!--<p id="description">{{description}}</p>-->
+                    <!--&lt;!&ndash;<p class="text-info">From Sydney</p>&ndash;&gt;-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-xs-offset-4">-->
+                <!--<div class="col-xs-12">-->
+                    <!--<div class="col-xs-12">-->
+                        <!--<h4 ><b>Job Types</b></h4>-->
+                        <!--<div style="margin-left: 45px">-->
+                            <!--<h5  ng-show="type1">Stylist<span style="float: right">  <b>${{price1}} Per Day</b></span></h5>-->
+                            <!--<h5  ng-show="type2">Educator<span style="float: right">  <b>${{price2}} Per Day</b></span></h5>-->
+                            <!--<h5  ng-show="type3">Assistant<span style="float: right">  <b>${{price3}} Per Day</b></span></h5>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-xs-12">-->
+                    <!--<div class="col-xs-6">-->
+                        <!--<h4 ><b>Skills</b></h4>-->
+                        <!--<div style="margin-left: 45px">-->
+                            <!--<h5 ng-show="skill1">Barber</h5>-->
+                            <!--<h5 ng-show="skill2">Freehand</h5>-->
+                            <!--<h5 ng-show="skill3">Razor</h5>-->
+                            <!--<h5 ng-show="skill4">Shaving</h5>-->
+                            <!--<h5 ng-show="skill5">Scissor over comb</h5>-->
+                            <!--<h5 ng-show="skill6">Texturing</h5>-->
+                            <!--<h5 ng-show="skill7">Clipper work</h5>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="col-xs-6">-->
+                        <!--<div style="margin-left: 45px; margin-top: 40px">-->
+                            <!--<h5 ng-show="skill8">Classics</h5>-->
+                            <!--<h5 ng-show="skill9">Dry cutting</h5>-->
+                            <!--<h5 ng-show="skill10">Wig cutting</h5>-->
+                            <!--<h5 ng-show="skill11">Long hair</h5>-->
+                            <!--<h5 ng-show="skill12">Short hair</h5>-->
+                            <!--<h5 ng-show="skill13">Makeup</h5>-->
+                            <!--<h5 ng-show="skill14">Hair coloring</h5>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="col-xs-6">-->
 
-        </div>
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<hr class="col-xs-10 col-xs-offset-1">-->
+            <!--<div class="col-xs-10" style="margin-left:90px">-->
+                <!--&lt;!&ndash;<div class="alert alert-success" style="margin-top: 25px;" ng-show="!success">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<strong>Tharaka Ranatunga doesn't have any feedback yet !</strong>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="col-xs-3" style="text-align: center; margin-top: 30px">-->
+            <!--<input type="button" class="btn btn-success" value="Order Now" ng-click="placeOrder()" style="width: 150px; margin-bottom: 40px">-->
+
+        <!--</div>-->
     </div>
 </div>

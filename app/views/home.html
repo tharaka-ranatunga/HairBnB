@@ -1,9 +1,9 @@
 
 <div class="" ng-show="true" style="">
-    <div style="padding-top: 200px">
+    <div style="padding-top: 250px">
         <div class="form-group" ng-controller="SearchController">
             <div class="col-lg-12">
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-lg-offset-1" style="margin-left: 60px">
                     <label for="skill" class="col-lg-4" style="margin-top: 7px">Location</label>
                     <select  class="form-control" name="size" id="location" style="width: 150px">
                         <option ng-repeat="item in location_list">{{item}}</option>
@@ -21,9 +21,9 @@
                         <option ng-repeat="item in skill_types">{{item}}</option>
                     </select>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-2" style="">
                     <label for="skill"></label>
-                    <input type="button" value="Search" ng-click="beginSearch(selectedSkillName,selectedName)" class="btn btn-success" style="">
+                    <input type="button" value="Search" ng-click="beginSearch(selectedSkillName,selectedName)" class="btn btn-primary" style="width: 150px">
                 </div>
             </div>
 
