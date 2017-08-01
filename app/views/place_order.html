@@ -1,26 +1,36 @@
-<div ng-controller="ViewProfileController" >
+<div ng-controller="OrderController" ng-init="onInit()">
 
     <h3 style="font-family: Roboto; color: #80a5c0">
         You are just one step away to get the work done
     </h3>
 
-    <form ng-submit="sub()" style="font-family: Roboto-light">
+    <form  style="font-family: Roboto-light">
         <hr class="col-lg-12" style="">
             <h4>Select the job you want to book for</h4>
-            <div class="col-lg-12" style="height: 30px;">
-                <input  type="radio" name="job" id="job1" checked><label for="job1">Stylist</label>
+
+
+            <div ng-repeat="item in job_types_arr">
+                <div ng-show="item.value" class="col-lg-12">
+                    <div class="col-lg-2"><input type="radio" name="job" id="job{{item.id}}" ><label for="job{{item.id}}">&nbsp;&nbsp;{{item.name}}</label></div>
+                    <p class="col-lg-10">{{item.price}}</p>
+                </div>
             </div>
 
-            <br><br>
 
-            <div class="col-lg-12" style="height: 30px">
-                <input  type="radio" name="job" id="job2"><label for="job2">Assistant</label>
-            </div>
-            <br><br>
+            <!--<div ng-hide="!type1" class="col-lg-12" style="height: 30px;">-->
+                <!--<input  type="radio" name="job" id="job1" checked><label for="job1">Stylist</label>-->
+            <!--</div>-->
 
-            <div class="col-lg-12" style="height: 30px">
-                <input  type="radio" name="job" id="job3"><label for="job3">Educator</label>
-            </div>
+            <!--<br><br>-->
+
+            <!--<div ng-hide="!type2" class="col-lg-12" style="height: 30px">-->
+                <!--<input  type="radio" name="job" id="job2"><label for="job2">Assistant</label>-->
+            <!--</div>-->
+            <!--<br><br>-->
+
+            <!--<div  ng-hide="!type3" class="col-lg-12" style="height: 30px">-->
+                <!--<input  type="radio" name="job" id="job3"><label for="job3">Educator</label>-->
+            <!--</div>-->
 
 
         <hr class="col-lg-12" style="">
@@ -29,7 +39,7 @@
         <input class="col-lg-12 " style=""  required>
 
         <hr class="col-lg-12" style="">
-        <h4>Write a message</h4>
+        <h4>Write a message{{firstname}}</h4>
 
         <textarea class="col-lg-12" style="resize: none; height: 100px"  required></textarea>
 

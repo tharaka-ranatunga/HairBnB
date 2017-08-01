@@ -2,31 +2,34 @@
  * Created by tharaka_ra on 7/28/2017.
  */
 myApp.controller('ViewProfileController',
-    ['$scope','$http','AuthService','$location',
-        function ($scope,$http,AuthService,$location) {
+    ['$scope','$http','AuthService','$location','OrderService',
+        function ($scope,$http,AuthService,$location, OrderService) {
             $scope.firstname = '';
             $scope.lastname = '';
             $scope.description = '';
+            $scope.stylistId;
 
             $scope.skill1 = false; $scope.skill4 = false; $scope.skill7 = false; $scope.skill9 = false;
             $scope.skill2 = false; $scope.skill5 = false; $scope.skill8 = false; $scope.skill10 = false;
             $scope.skill3 = false; $scope.skill6 = false; $scope.skill11 = false;
 
             $scope.type1 = false; $scope.type2 = false; $scope.type3 = false;
-            $scope.price1 = ''; $scope.price2 = ''; $scope.price3 = '';
+            $scope.price1 ; $scope.price2 ; $scope.price3 ;
 
             $scope.placeOrder = function (id) {
                 var user = AuthService.getUser();
+                OrderService.order($scope.stylistId, $scope.firstname+" "+$scope.lastname, $scope.type1,$scope.type2 ,$scope.type3,$scope.price1,$scope.price2,$scope.price3);
                 if(user) {
                     $location.path('/order/place').search({userid: id});
                 }else{
-                    $('#signin_model').modal('show');
+                    $('#signin').modal('show');
                 }
             };
 
             $scope.onInit = function () {
                 var params = $location.search();
                 var user_id = (params.userid);
+                $scope.stylistId = user_id;
                 $http({
                     method: "GET",
                     url: "http://localhost:3000/profile/getProfilePublic?id="+ user_id

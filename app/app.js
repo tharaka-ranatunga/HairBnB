@@ -5,7 +5,7 @@ var myApp = angular.module('myApp',[
     'signUp',
     'signIn',
     'ngStorage',
-    'ui.router', ,
+    'ui.router',
     'ngRoute',
     'calApp',
     'ui.rCalendar',
