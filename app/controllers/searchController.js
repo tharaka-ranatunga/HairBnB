@@ -41,6 +41,7 @@ myApp.controller('SearchController',
                 }
             };
 
+
             $scope.search_results = [];
             $scope.onInit = function () {
                 var params = $location.search();
@@ -77,7 +78,6 @@ myApp.controller('SearchController',
                                 }
                             }
                         }
-                        console.log('Price for: ' + c);
                         if(description.length>50){
                             description = description.substring(0,50) + '....';
                         }

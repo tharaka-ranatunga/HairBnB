@@ -74,7 +74,16 @@ myApp.config(['$routeProvider', function($routeProvider){
             resolve:{
                 init : function () {
                     //Nothing here for now
-                    console.log('search results route triggered');
+                }
+            }
+        })
+
+        .when("/order/place",{
+            templateUrl : "place_order.html",
+            controller: 'MainController',
+            resolve:{
+                init : function () {
+                    //Nothing here for now
                 }
             }
         })
@@ -86,7 +95,6 @@ myApp.config(['$routeProvider', function($routeProvider){
             resolve:{
                 init : function () {
                     //Nothing here for now
-                    console.log('search results route triggered');
                 }
             }
         })

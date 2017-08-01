@@ -1,0 +1,43 @@
+<div ng-controller="ViewProfileController" >
+
+    <h3 style="font-family: Roboto; color: #80a5c0">
+        You are just one step away to get the work done
+    </h3>
+
+    <form ng-submit="sub()" style="font-family: Roboto-light">
+        <hr class="col-lg-12" style="">
+            <h4>Select the job you want to book for</h4>
+            <div class="col-lg-12" style="height: 30px;">
+                <input  type="radio" name="job" id="job1" checked><label for="job1">Stylist</label>
+            </div>
+
+            <br><br>
+
+            <div class="col-lg-12" style="height: 30px">
+                <input  type="radio" name="job" id="job2"><label for="job2">Assistant</label>
+            </div>
+            <br><br>
+
+            <div class="col-lg-12" style="height: 30px">
+                <input  type="radio" name="job" id="job3"><label for="job3">Educator</label>
+            </div>
+
+
+        <hr class="col-lg-12" style="">
+        <h4>Location</h4>
+
+        <input class="col-lg-12 " style=""  required>
+
+        <hr class="col-lg-12" style="">
+        <h4>Write a message</h4>
+
+        <textarea class="col-lg-12" style="resize: none; height: 100px"  required></textarea>
+
+
+        <br>
+        <button class="btn-primary" type="submit" style="float: right; margin-top: 50px">Checkout</button>
+    </form>
+
+
+
+</div>
