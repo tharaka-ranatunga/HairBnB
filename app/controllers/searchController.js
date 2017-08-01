@@ -65,8 +65,11 @@ myApp.controller('SearchController',
                         if(typeof stylists[i].description==="undefined"){description = stylists[i][0].description;}
                         else{ description = stylists[i].description;}
                         var types= '';
+                        var c=0;
                         for(var j=0; j<userTypes.length; j++){
                             if(userTypes[j].user_id===id){
+                                if (c===0){c=parseInt(userTypes[j].price);}
+                                else{if(parseInt(userTypes[j].price)<c){c = parseInt(userTypes[j].price);}}
                                 if(types===''){
                                     types=$scope.job_types[(userTypes[j].job_id)-1];
                                 }else{
@@ -74,6 +77,7 @@ myApp.controller('SearchController',
                                 }
                             }
                         }
+                        console.log('Price for: ' + c);
                         if(description.length>50){
                             description = description.substring(0,50) + '....';
                         }
@@ -90,7 +94,7 @@ myApp.controller('SearchController',
                             lastname: users[i][0].lastname,
                             acctypes: types,
                             id: users[i][0].id,
-                            price: "$2400",
+                            price: c,
                             rates: "0.0",
                             location: "Sidney",
                             description: description,
