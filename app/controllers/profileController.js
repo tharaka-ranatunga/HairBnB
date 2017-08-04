@@ -96,7 +96,6 @@ myApp.controller('ProfileController',['$scope','$http','AuthService','$location'
         };
         $http(req).then(
             function(resData){
-                console.log(resData);
                 $location.path('/profile');
 
             });

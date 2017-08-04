@@ -40,8 +40,8 @@
                     <label for="job_types" style="font-family: Roboto" >Job Type</label>
                     <div  id="job_types">
                         <div ng-repeat="item in job_types">
-                            <input type="checkbox" id="job_type{{item.name}}" ng-click="dynamicSearch()" ng-model="item.value" ng-hide="$index === (job_types.length-1)">
-                            <label for="job_type{{item.name}}" ng-hide="$index === (job_types.length-1)">{{item.name}}</label>
+                            <input type="checkbox" id="job_type{{item.name}}" ng-model="item.value" ng-hide="$index === 0">
+                            <label for="job_type{{item.name}}" ng-hide="$index === 0">{{item.name}}</label>
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                         <div class="col-lg-4" style="margin-left: -15px">
                             <div ng-repeat="item in skill_types">
                                 <div ng-if="$index!==0 && $index <=4">
-                                    <input type="checkbox" id="skill_type_men1{{item.name}}" ng-click="dynamicSearch()" ng-model="item.value" >
+                                    <input type="checkbox" id="skill_type_men1{{item.name}}" ng-model="item.value" >
                                     <label for="skill_type_men1{{item.name}}">{{item.name}}</label>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                         <div class="col-lg-8">
                             <div ng-repeat="item in skill_types">
                                 <div ng-if="$index!==0 && ($index > 4 && $index <=7)">
-                                    <input type="checkbox" id="skill_type_men2{{item.name}}" ng-click="dynamicSearch()" ng-model="item.value" >
+                                    <input type="checkbox" id="skill_type_men2{{item.name}}" ng-model="item.value" >
                                     <label for="skill_type_men2{{item.name}}">{{item.name}}</label>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                         <div class="col-lg-4" style="margin-left: -15px">
                             <div ng-repeat="item in skill_types">
                                 <div ng-if="$index>7 && $index <=11">
-                                    <input type="checkbox" id="skill_type_women1{{item.name}}" ng-click="dynamicSearch()" ng-model="item.value" >
+                                    <input type="checkbox" id="skill_type_women1{{item.name}}" ng-model="item.value" >
                                     <label for="skill_type_men1{{item.name}}">{{item.name}}</label>
                                 </div>
                             </div>
@@ -82,12 +82,16 @@
                         <div class="col-lg-8">
                             <div ng-repeat="item in skill_types">
                                 <div ng-if="$index>11">
-                                    <input type="checkbox" id="skill_type_women2{{item.name}}" ng-click="dynamicSearch()" ng-model="item.value" >
+                                    <input type="checkbox" id="skill_type_women2{{item.name}}" ng-model="item.value" >
                                     <label for="skill_type_men2{{item.name}}">{{item.name}}</label>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="col-xs-2">
+                    <input type="button" class="btn btn-primary" ng-click="dynamicSearch()" value="Filter">
                 </div>
 
             </div>
