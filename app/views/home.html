@@ -6,19 +6,19 @@
                 <div class="col-lg-3 col-lg-offset-1" style="margin-left: 60px">
                     <label for="skill" class="col-lg-4" style="margin-top: 7px">Location</label>
                     <select  class="form-control" name="size" id="location" style="width: 150px">
-                        <option ng-repeat="item in location_list">{{item}}</option>
+                        <option ng-repeat="item in location_list">{{item.name}}</option>
                     </select>
                 </div>
                 <div class="col-lg-3 ">
                     <label for="jobtype" class="col-lg-4" style="margin-top: 7px">JobType</label>
                     <select ng-model="selectedName" class="form-control" name="size" id="jobtype" style="width: 150px">
-                        <option ng-repeat="item in job_types">{{item}}</option>
+                        <option ng-repeat="item in job_types">{{item.name}}</option>
                     </select>
                 </div>
                 <div class="col-lg-3">
                     <label for="skill" class="col-lg-4" style="margin-top: 7px">Skills</label>
                     <select ng-model="selectedSkillName" class="form-control" name="size" id="skill" style="width: 150px">
-                        <option ng-repeat="item in skill_types">{{item}}</option>
+                        <option ng-repeat="item in skill_types">{{item.name}}</option>
                     </select>
                 </div>
                 <div class="col-lg-2" style="">
