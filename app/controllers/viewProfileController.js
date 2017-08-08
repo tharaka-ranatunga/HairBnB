@@ -11,7 +11,7 @@ myApp.controller('ViewProfileController',
 
             $scope.skill1 = false; $scope.skill4 = false; $scope.skill7 = false; $scope.skill9 = false;
             $scope.skill2 = false; $scope.skill5 = false; $scope.skill8 = false; $scope.skill10 = false;
-            $scope.skill3 = false; $scope.skill6 = false; $scope.skill11 = false;
+            $scope.skill3 = false; $scope.skill6 = false; $scope.skill11 = false;$scope.skill12 = false;$scope.skill13 = false;$scope.skill14 = false;
 
             $scope.type1 = false; $scope.type2 = false; $scope.type3 = false;
             $scope.price1 ; $scope.price2 ; $scope.price3 ;
@@ -57,6 +57,9 @@ myApp.controller('ViewProfileController',
                             if(skilltypeArr[j].skill_id===9){$scope.skill9=true;}
                             if(skilltypeArr[j].skill_id===10){$scope.skill10=true;}
                             if(skilltypeArr[j].skill_id===11){$scope.skill11=true;}
+                            if(skilltypeArr[j].skill_id===12){$scope.skill12=true;}
+                            if(skilltypeArr[j].skill_id===13){$scope.skill13=true;}
+                            if(skilltypeArr[j].skill_id===14){$scope.skill14=true;}
                         }
                     }
                 },function (error){

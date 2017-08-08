@@ -91,7 +91,6 @@ myApp.controller('SearchController',
                     method: "GET",
                     url: "http://localhost:3000/search?"+ query2 + "&" + query1
                 }).then(function (resData){
-                    console.log(resData);
                     var users = resData.data.users;
                     var stylists = resData.data.stylists;
                     var userTypes = resData.data.user_types;
@@ -114,13 +113,10 @@ myApp.controller('SearchController',
                                 }
 
                                 if (user_id === id) {
-                                    console.log(userTypes[j].price);
                                     if(typeof userTypes[j].price==='undefined'){
-                                        console.log('here');
                                         if(price===0){price = parseInt(userTypes[j][0].price);}
                                         else{if(price>(parseInt(userTypes[j][0].price))){price = parseInt(userTypes[j][0].price);}}
                                     }else {
-                                        console.log('here else');
                                         if(price===0){price = parseInt(userTypes[j].price);}
                                         else{if(price>(parseInt(userTypes[j].price))){price = parseInt(userTypes[j].price);}}
                                     }
@@ -160,7 +156,7 @@ myApp.controller('SearchController',
                     }else{$scope.empty_results = false;}
                 },function (error){
                     console.log('Error on searching profile: ' + error);
-                });
+            });
             };
 
             $scope.dynamicSearch = function () {

@@ -8,7 +8,7 @@
     }
 </style>
 
-<div style=" margin-top: 50px; min-height: 600px" ng-controller="SearchController" ng-init="onInit()">
+<div style=" min-height: 600px" ng-controller="SearchController" ng-init="onInit()">
         <!--<div class="col-xs-3">-->
             <!--<label for="location">Location</label>-->
             <!--<select class="form-control" name="location" id="location" style="width: 200px">-->
@@ -32,9 +32,9 @@
                 <!--<option value="l1">Short hair</option>-->
             <!--</select>-->
         <!--</div>-->
-        <div class="col-xs-12" style="font-family: Roboto; ">
 
-            <div class="" style="font-family: Roboto-light; font-size: 10pt">
+
+            <div id='' class="col-xs-8" style="font-family: Roboto-light; font-size: 10pt; position: fixed; z-index: 1; background-color:rgba(255, 255, 255, 1);padding-top: 50px" >
 
                 <div class="col-xs-2">
                     <label for="job_types" style="font-family: Roboto" >Job Type</label>
@@ -91,13 +91,15 @@
                 </div>
 
                 <div class="col-xs-2">
-                    <input type="button" class="btn btn-primary" ng-click="dynamicSearch()" value="Filter">
+                    <input type="button" value="Filter Results" ng-click="dynamicSearch()" class="btn btn-primary" style="width: 150px">
                 </div>
 
-            </div>
 
+
+            </div>
+            <div style="height: 170px"></div>
             <div class="alert alert-primary" style="margin-top: 25px" ng-show="empty_results">
-                <strong>No stylist found for your requirement!</strong>
+                <strong>No stylists found</strong>
             </div>
             <div ng-repeat="search_data in search_results" style="">
                 <div class="col-xs-3 " style="margin-top: 20px; " ng-click="viewProfile(search_data.id)" >
