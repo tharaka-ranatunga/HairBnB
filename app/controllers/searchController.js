@@ -29,7 +29,7 @@ myApp.controller('SearchController',
             // $scope.selectedSkillName = $scope.skill_types[0];
             // $scope.empty_results = false;
 
-            $scope.beginSearch = function (skill, jobtype) {
+            $scope.beginSearch = function (skill, jobtype, onStatic) {
                 var jobtypes, skilltype, index;
 
                 for(index=0; index<$scope.job_types.length; index++){
@@ -49,6 +49,7 @@ myApp.controller('SearchController',
                 SearchService.writeSearchHistory(jobtypes,skilltype,function (callback) {
                     if(callback){
                         $location.path('/search').search({jobtype: jobtypes, skilltype: skilltype});
+                        if(onStatic){$scope.onInit();$scope.search_results = [];}
                     }else{
                         console.log('Error detected when writing to local storage');
                         $location.path('/search').search({jobtype: jobtypes, skilltype: skilltype});
@@ -129,7 +130,27 @@ myApp.controller('SearchController',
                 var params = $location.search();
                 var job_type = (params.jobtype);
                 var skill_type = (params.skilltype);
-
+                var index = 0;
+                for(index=0; index<$scope.job_types.length; index++){$scope.job_types[index].value=false;}
+                for(index=0; index<$scope.skill_types.length; index++){$scope.skill_types[index].value=false;}
+                if(job_type==='all'){for(index=0; index<$scope.job_types.length; index++){$scope.job_types[index].value=false;}}
+                else{
+                    try {
+                        $scope.job_types[(job_type)].value = true
+                    }catch (err){
+                        console.log(err);
+                        console.log('Invalid job type:' + job_type);
+                    }
+                }
+                if(skill_type==='all'){for(index=0; index<$scope.skill_types.length; index++){$scope.skill_types[index].value=false;}}
+                else{
+                    try {
+                        $scope.skill_types[(skill_type)].value = true
+                    }catch (err){
+                        console.log(err);
+                        console.log('Invalid skill type:' + skill_type);
+                    }
+                }
                 var query1 = 'typeid=' + job_type;
                 var query2 = 'skillid=' + skill_type;
                 console.log("search url: http://localhost:3000/search?"+ query2 + "&" + query1);
@@ -219,12 +240,14 @@ myApp.controller('SearchController',
                         skill_types.push(i);
                     }
                 }
+                if(skill_types.length===0 && job_types.length==0){
+                    $scope.beginSearch('Select All','Select All', true);
+                    return;
+                }
                 $http({
                     method: "GET",
                     url: "http://localhost:3000/dynamicSearch?jobtype="+ job_types + "&skilltype=" + skill_types
                 }).then(function (resData){
-                    // console.log(resData);
-                    console.log('Dynamic search triggered');
                     var users = resData.data.users;
                     var stylists = resData.data.stylists;
                     var jobtypes = resData.data.jobtypes;
@@ -282,7 +305,6 @@ myApp.controller('SearchController',
                             disable: disable
                         });
                     }
-                    console.log($scope.search_results);
                     if($scope.search_results.length===0){
                         $scope.empty_results = true;
                     }else{$scope.empty_results = false;}

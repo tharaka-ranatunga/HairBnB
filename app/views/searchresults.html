@@ -52,7 +52,7 @@
                         <div class="col-lg-4" style="margin-left: -15px">
                             <div ng-repeat="item in skill_types">
                                 <div ng-if="$index!==0 && $index <=4">
-                                    <input type="checkbox" id="skill_type_men1{{item.name}}" ng-model="item.value" >
+                                    <input type="checkbox" id="skill_type_men1{{item.name}}" ng-model="item.value">
                                     <label for="skill_type_men1{{item.name}}">{{item.name}}</label>
                                 </div>
                             </div>
@@ -106,7 +106,7 @@
                     <div class="col-lg-12 panel panel-default">
                             <a style="">
                                 <img src="../assets/images/profile.jpg" style="width: 100%; margin-top: 15px">
-                                <p style="font-size: 14pt; margin-top: 5px">{{search_data.firstname}} {{search_data.lastname}}</p>
+                                <p style="font-size: 14pt; margin-top: 5px;text-transform: capitalize">{{search_data.firstname}} {{search_data.lastname}}</p>
 
                                 <!--<div style=" margin-top: -10px">-->
                                     <!--<input type="button" class="btn btn-primary"  value="View" style="width: 100px; ">-->
