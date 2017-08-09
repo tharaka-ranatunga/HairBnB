@@ -6,9 +6,12 @@ myApp.controller('ProfileController',['$scope','$http','AuthService','$location'
 
     $scope.skill1 = false; $scope.skill4 = false; $scope.skill7 = false; $scope.skill9 = false;
     $scope.skill2 = false; $scope.skill5 = false; $scope.skill8 = false; $scope.skill10 = false;
-    $scope.skill3 = false; $scope.skill6 = false; $scope.skill11 = false;
+    $scope.skill3 = false; $scope.skill6 = false; $scope.skill11 = false;$scope.skill12 = false;$scope.skill13 = false;$scope.skill14 = false;
 
-    $scope.type1 = false; $scope.type2 = false; $scope.type3 = false;
+
+    $scope.jobs = [{value:false, name:'Stylist', price:0.0},
+                    {value:false, name:'Educator', price:0.0},
+                    {value:false, name:'Assistant', price:0.0}];
 
     $scope.onInit = function () {
         var user = AuthService.getUser();
@@ -22,9 +25,8 @@ myApp.controller('ProfileController',['$scope','$http','AuthService','$location'
                 console.log(resData);
                 $scope.bio = resData.data.description;
                 for(var i=0; i<resData.data.job_types.length; i++){
-                    if(resData.data.job_types[i]===1){$scope.type1=true; $scope.price1=resData.data.price[i];}
-                    if(resData.data.job_types[i]===2){$scope.type2=true; $scope.price2=resData.data.price[i];}
-                    if(resData.data.job_types[i]===3){$scope.type3=true; $scope.price3=resData.data.price[i];}
+                    $scope.jobs[resData.data.job_types[i]-1].value = true;
+                    $scope.jobs[resData.data.job_types[i]-1].price = resData.data.price[i];
                 }
 
 

@@ -20,20 +20,25 @@
 
         <div class="col-lg-12" style="margin-top: 50px">
             <div class="col-lg-12 alert alert-info">
+                <div  ng-repeat="item in jobs">
+                    <div class="col-lg-4" ng-if="item.value">
+                        <p>Book me as {{item.name}}</p>
+                        <p><span style="font-size:18pt">{{item.price}}</span> per day</p>
+                    </div>
+                </div>
+                <!--<div class="col-lg-4">-->
+                    <!--<p ng-show="type1">Book me as Stylist</p>-->
+                    <!--<p ng-show="type1" ><span style="font-size:18pt">${{price1}}</span> per day</p>-->
+                <!--</div>-->
+                <!--<div class="col-lg-4">-->
+                    <!--<p ng-show="type2">Book me as Educator</p>-->
+                    <!--<p ng-show="type2"><span style="font-size:18pt">${{price2}}</span> per day</p>-->
+                <!--</div>-->
+                <!--<div class="col-lg-4">-->
+                    <!--<p ng-show="type3">Book me as Assistant</p>-->
+                    <!--<p ng-show="type3"><span style="font-size:18pt">${{price3}}</span> per day</p>-->
 
-                <div class="col-lg-4">
-                    <p ng-show="type1">Book me as Stylist</p>
-                    <p ng-show="type1" ><span style="font-size:18pt">${{price1}}</span> per day</p>
-                </div>
-                <div class="col-lg-4">
-                    <p ng-show="type2">Book me as Educator</p>
-                    <p ng-show="type2"><span style="font-size:18pt">${{price2}}</span> per day</p>
-                </div>
-                <div class="col-lg-4">
-                    <p ng-show="type3">Book me as Assistant</p>
-                    <p ng-show="type3"><span style="font-size:18pt">${{price3}}</span> per day</p>
-
-                </div>
+                <!--</div>-->
             </div>
 
             <h4 style="margin-top: 150px" >Bio </h4>

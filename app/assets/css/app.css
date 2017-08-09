@@ -127,3 +127,7 @@ button:hover, button:focus {
     border-radius: 3px;
 }
 
+.vis-hidden{
+    visibility: hidden;
+}
+

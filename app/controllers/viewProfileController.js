@@ -16,9 +16,13 @@ myApp.controller('ViewProfileController',
             $scope.type1 = false; $scope.type2 = false; $scope.type3 = false;
             $scope.price1 ; $scope.price2 ; $scope.price3 ;
 
+            $scope.jobs = [{value:false, name:'Stylist', price:0.0},
+                {value:false, name:'Educator', price:0.0},
+                {value:false, name:'Assistant', price:0.0}];
+
             $scope.placeOrder = function (id) {
                 var user = AuthService.getUser();
-                OrderService.order($scope.stylistId, $scope.firstname+" "+$scope.lastname, $scope.type1,$scope.type2 ,$scope.type3,$scope.price1,$scope.price2,$scope.price3);
+                OrderService.order($scope.stylistId, $scope.firstname+" "+$scope.lastname, $scope.jobs[0].value,$scope.jobs[1].value ,$scope.jobs[2].value,$scope.jobs[0].price,$scope.jobs[1].price,$scope.jobs[2].price);
                 if(user) {
                     $location.path('/order/place').search({userid: id});
                 }else{
@@ -39,11 +43,16 @@ myApp.controller('ViewProfileController',
                         $scope.lastname = resData.data.user[0].lastname;
                         $scope.description = resData.data.stylist[0].description;
                         var jobtypeArr = resData.data.jobtypes[0];
+
                         for(var i=0; i<jobtypeArr.length; i++){
-                            if(jobtypeArr[i].job_id===1){$scope.type1=true; $scope.price1 = jobtypeArr[i].price;}
-                            if(jobtypeArr[i].job_id===2){$scope.type2=true; $scope.price2 = jobtypeArr[i].price;}
-                            if(jobtypeArr[i].job_id===3){$scope.type3=true; $scope.price3 = jobtypeArr[i].price;}
+                            $scope.jobs[jobtypeArr[i].job_id-1].value = true;
+                            $scope.jobs[jobtypeArr[i].job_id-1].price = jobtypeArr[i].price;
                         }
+                        // for(var i=0; i<jobtypeArr.length; i++){
+                        //     if(jobtypeArr[i].job_id===1){$scope.type1=true; $scope.price1 = jobtypeArr[i].price;}
+                        //     if(jobtypeArr[i].job_id===2){$scope.type2=true; $scope.price2 = jobtypeArr[i].price;}
+                        //     if(jobtypeArr[i].job_id===3){$scope.type3=true; $scope.price3 = jobtypeArr[i].price;}
+                        // }
                         var skilltypeArr = resData.data.skilltypes[0];
                         for(var j=0; j<skilltypeArr.length; j++){
                             if(skilltypeArr[j].skill_id===1){$scope.skill1=true;}
