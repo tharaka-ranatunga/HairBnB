@@ -4,10 +4,13 @@
 angular.module('myApp')
     .factory('AuthService',['$localStorage', '$http', function ($localStorage, $http) {
         var isLogin = false;
+        var status = false;
         var service = {};
 
         service.Login = login;
         service.Logout = logout;
+        service.setStylist = setStylist;
+        service.getStylist = getStylist;
         service.getUser = getUser;
         service.isLogin = isLogin;
         service.setIsLogin = setIsLogin;
@@ -30,6 +33,14 @@ angular.module('myApp')
                 isLogin = false;
                 return null;
             }
+        }
+
+        function setStylist(bool) {
+            status=bool;
+        }
+
+        function getStylist() {
+            return status;
         }
 
         function login(user_id, first_name, last_name, email, auth_token, callback) {

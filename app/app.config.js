@@ -42,29 +42,29 @@ myApp.config(['$routeProvider', function($routeProvider){
         .when("/profile", {
             //Profile View Page [Edit]
             templateUrl : "profile.html",
-            controller: 'MainController',
-            resolve:{
-                init :function(AuthService, $location, $http){
-                    if(AuthService.getUser()===null){
-                        console.log('Unauthorized url request');
-                        $location.path('/');
-                    }else{
-                        $http({
-                            method: "GET",
-                            url: "http://localhost:3000/profile/getProfileStatus"
-                        }).then(function (resData){
-                            console.log('Server status [/profile]: ' + resData.status);
-                        },function (error){
-                            if(error.status===404){
-                                $location.path('/profile/create');
-                            }else {
-                                console.log('Sever connection error occurred, redirecting to home');
-                                $location.path('/');
-                            }
-                        });
-                    }
-                }
-            }
+            controller: 'MainController'
+            // resolve:{
+            //     init :function(AuthService, $location, $http){
+            //         if(AuthService.getUser()===null){
+            //             console.log('Unauthorized url request');
+            //             $location.path('/');
+            //         }else{
+            //             $http({
+            //                 method: "GET",
+            //                 url: "http://localhost:3000/profile/getProfileStatus"
+            //             }).then(function (resData){
+            //                 console.log('Server status [/profile]: ' + resData.status);
+            //             },function (error){
+            //                 if(error.status===404){
+            //                     $location.path('/profile/create');
+            //                 }else {
+            //                     console.log('Sever connection error occurred, redirecting to home');
+            //                     $location.path('/');
+            //                 }
+            //             });
+            //         }
+            //     }
+            // }
         })
 
         .when("/search", {

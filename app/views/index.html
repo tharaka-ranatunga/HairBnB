@@ -56,8 +56,7 @@
 
 
 
-<div class="menu col-lg-12" style="position: fixed; z-index: 2; background-color: white">
-    <nav class="navbar navbar-default" style="background-color: transparent;border: none; font-size: 11pt">
+    <nav class="navbar navbar-default col-lg-12" style="position: fixed; z-index: 2; background-color: white;border: none; font-size: 11pt">
         <div class="container-fluid col-lg-offset-2 col-lg-8" >
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -80,6 +79,7 @@
                 <ul class="nav navbar-nav navbar-right" >
                     <!--<li><a href="#">Help</a></li>-->
                     <!--<li ng-hide="user_salon || !(authenticated)"><a href="/HairBnB/app/views/#!/create">Become a Stylist</a></li>-->
+                    <li ng-hide="(isStylist)||!(authenticated)"><a href="/HairBnB/app/views/#!/profile/create">Become a Stylist</a></li>
                     <li  ng-hide="!(authenticated)" >
 
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="text-transform: capitalize;">
@@ -88,7 +88,7 @@
 
                         <ul class="dropdown-menu" id="user_dropdown">
                             <li><a href="#">Dashboard</a></li>
-                            <li ng-show="user_salon"><a href="/HairBnB/app/views/#!/profile">My Profile</a></li>
+                            <li ng-show="(isStylist)"><a href="/HairBnB/app/views/#!/profile">My Profile</a></li>
                             <li><a href="">Account and Settings</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="#" ng-click="sign_out()">Sign Out</a></li>
@@ -96,6 +96,7 @@
                     </li>
                     <li ng-hide="(authenticated)"><a href="#" data-toggle="modal" data-target="#signin" style = "background-size: contain">Sign in</a></li>
                     <li ng-hide="(authenticated)"><a href="#" data-toggle="modal" data-target="#signup">Sign up</a></li>
+
                     <!--<li class="dropdown">-->
                     <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>-->
                     <!--<ul class="dropdown-menu">-->
@@ -110,8 +111,6 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-</div>
-
 
 <div style="height: 50px;" ></div>
 <div style="min-height: 680px">
