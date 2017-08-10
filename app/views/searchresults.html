@@ -46,10 +46,10 @@
                     </div>
                 </div>
 
-                <div class="col-xs-4">
+                <div class="col-xs-3">
                     <label for="skill_types_men" style="font-family: Roboto" >Men</label>
                     <div id="skill_types_men" >
-                        <div class="col-lg-4" style="margin-left: -15px">
+                        <div class="col-lg-5" style="margin-left: -15px">
                             <div ng-repeat="item in skill_types">
                                 <div ng-if="$index!==0 && $index <=4">
                                     <input type="checkbox" id="skill_type_men1{{item.name}}" ng-model="item.value">
@@ -57,7 +57,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-8">
+                        <div class="col-lg-7">
                             <div ng-repeat="item in skill_types">
                                 <div ng-if="$index!==0 && ($index > 4 && $index <=7)">
                                     <input type="checkbox" id="skill_type_men2{{item.name}}" ng-model="item.value" >
@@ -68,10 +68,10 @@
                     </div>
                 </div>
 
-                <div class="col-xs-4" >
+                <div class="col-xs-3" >
                     <label for="skill_types_men" style="font-family: Roboto" >Women</label>
                     <div id="skill_types_women" >
-                        <div class="col-lg-4" style="margin-left: -15px">
+                        <div class="col-lg-6" style="margin-left: -15px">
                             <div ng-repeat="item in skill_types">
                                 <div ng-if="$index>7 && $index <=11">
                                     <input type="checkbox" id="skill_type_women1{{item.name}}" ng-model="item.value" >
@@ -79,7 +79,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-8">
+                        <div class="col-lg-6">
                             <div ng-repeat="item in skill_types">
                                 <div ng-if="$index>11">
                                     <input type="checkbox" id="skill_type_women2{{item.name}}" ng-model="item.value" >
@@ -89,9 +89,17 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-xs-2">
-                    <input type="button" value="Filter Results" ng-click="dynamicSearch()" class="btn btn-primary" style="width: 150px">
+                    <label for="skill_types_men" style="font-family: Roboto" >Sort by</label>
+                    <select class="form-control" ng-init="sorting='0'" id="sort" ng-model="sorting">
+                            <option value='0'>Best Match</option>
+                            <option value='1'>Lowest First</option>
+                            <option value='2'>Highest First</option>
+                    </select>
+                </div>
+                
+                <div class="col-xs-1 " style="margin-top: 23px">
+                    <input type="button" value="Filter" ng-click="dynamicSearch()" class="btn btn-primary" style="margin-left:30px; width: 100px; ">
                 </div>
 
 

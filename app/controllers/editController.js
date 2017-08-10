@@ -41,6 +41,8 @@ myApp.controller('EditController',
                         $scope.description = resData.data.stylist[0].description;
                         var i=0;
                         for(i=0; i<$scope.job_types.length; i++){
+
+
                             $scope.job_types[i].value = false;
                         }
                         for(i=0; i<jobtypes.length; i++){
@@ -104,7 +106,7 @@ myApp.controller('EditController',
             //     if($scope.description.length===0 || typeof $scope.description==='undefined'){
             //         $scope.des_error = true;
             //     }
-            //     if(!($scope.des_error) && !($scope.chrLengthError)) {
+            //     if(!($scope.des_error) && !($scope.chrLengthError)) {.
             //         $http({
             //             method: "POST",
             //             url: "http://localhost:3000/profile/updateProfile",

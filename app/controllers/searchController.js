@@ -8,7 +8,7 @@ myApp.controller('SearchController',
             $scope.job_types = [{name: "Select All", value: false},{name: "Stylist", value: false}, {name: "Educator", value: false},
                 {name: "Assistant", value: false}];
 
-            $scope.isLoading = false;
+            $scope.sorting=0;
             $scope.search_results = [];
 
             $scope.skill_types = [{name: "Select All", value: false},{name: "Barber",value: false}, {name: "Freeehand",value: false}, {name: "Razor",value: false},
@@ -153,7 +153,6 @@ myApp.controller('SearchController',
                 }
                 var query1 = 'typeid=' + job_type;
                 var query2 = 'skillid=' + skill_type;
-                console.log("search url: http://localhost:3000/search?"+ query2 + "&" + query1);
                 $http({
                     method: "GET",
                     url: "http://localhost:3000/search?"+ query2 + "&" + query1
@@ -218,6 +217,19 @@ myApp.controller('SearchController',
                             disable: disable
                         });
                     }
+
+                    if($scope.sorting ==='1'){
+                        $scope.search_results.sort(function (a, b) {
+                            return a.price - b.price;
+                        });
+                    }
+
+                    if($scope.sorting === '2'){
+                        $scope.search_results.sort(function (a, b) {
+                            return b.price - a.price;
+                        });
+                    }
+
                     if($scope.search_results.length===0){
                         $scope.empty_results = true;
                     }else{$scope.empty_results = false;}
@@ -225,6 +237,8 @@ myApp.controller('SearchController',
                     console.log('Error on searching profile: ' + error);
             });
             };
+
+            $scope.changeSorting = function(){}
 
             $scope.dynamicSearch = function () {
                 var i;
@@ -305,6 +319,21 @@ myApp.controller('SearchController',
                             disable: disable
                         });
                     }
+
+                    console.log($scope.sorting + "sdffsd");
+                    if($scope.sorting ==='1'){
+                        $scope.search_results.sort(function (a, b) {
+                            return a.price - b.price;
+                        });
+                    }
+
+                    if($scope.sorting === '2'){
+                        $scope.search_results.sort(function (a, b) {
+                            return b.price - a.price;
+                        });
+                    }
+
+
                     if($scope.search_results.length===0){
                         $scope.empty_results = true;
                     }else{$scope.empty_results = false;}
