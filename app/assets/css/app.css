@@ -77,6 +77,18 @@
     border-color: #80a5c0;
 
 }
+
+.btn-success{
+    background-color: #80a5c0 !important;
+    border-color: #80a5c0;
+}
+.btn-success:hover{
+    background-color:#66bb6a !important;
+    border-color: #66bb6a;
+
+
+}
+
 .required:after{
     content:' *';
     color : red;

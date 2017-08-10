@@ -1,5 +1,5 @@
-<div  ng-controller="ProfileController">
-    <div  >
+<div  ng-controller="ProfileController" class="col-lg-12">
+    <div>
 
         <h3 style="font-family: Roboto; color: #80a5c0">
             Complete your profile to get started
@@ -14,36 +14,36 @@
             <h4>Select jobs you can do</h4>
             <div class="col-lg-12">
                 <div class="col-lg-2" style="height: 30px;">
-                    <input ng-model="job1" type="checkbox" id="job1"><label for="job1">Stylist</label>
+                    <input ng-model="job1" type="checkbox" id="job1"><label for="job1" style="margin-top: 6px">Stylist</label>
                 </div>
 
-                <div ng-show="job1" class="col-lg-10" style=" height: 30px;">
-                    <input type="number" placeholder="Price per day($)" ng-model="price1" >
+                <div  class="col-lg-10" style=" height: 30px;">
+                    <input ng-disabled="!job1" type="number" placeholder="Price per day($)"  class="form-control" style="width: 200px"ng-model="price1" >
                 </div>
 
                 <br><br>
 
                 <div class="col-lg-2" style="height: 30px">
-                    <input ng-model="job2" type="checkbox" id="job2"><label for="job2">Educator</label>
+                    <input ng-model="job2" type="checkbox" id="job2"><label for="job2" style="margin-top: 6px">Educator</label>
                 </div>
-                <div ng-show="job2" class="col-lg-10" style="height: 30px">
-                    <input type="number" placeholder="Price per day($)" ng-model="price2" >
+                <div  class="col-lg-10" style="height: 30px">
+                    <input ng-disabled="!job2" type="number" placeholder="Price per day($)" class="form-control" style="width: 200px" ng-model="price2" >
                 </div>
                 <br><br>
 
                 <div class="col-lg-2" style="height: 30px">
-                    <input ng-model="job3" type="checkbox" id="job3" ><label for="job3">Assistant</label>
+                    <input ng-model="job3" type="checkbox" id="job3" ><label for="job3" style="margin-top: 6px">Assistant</label>
                 </div>
 
-                <div ng-show="job3" class="col-lg-10" style="height: 30px">
-                    <input type="number" placeholder="Price per day($)" ng-model="price3" >
+                <div  class="col-lg-10" style="height: 30px">
+                    <input ng-disabled="!job3" type="number" placeholder="Price per day($)" class="form-control"  style="width: 200px" ng-model="price3" >
                 </div>
             </div>
             <hr class="col-lg-12" style="">
                 <h4>Select skills you have</h4>
                 <div class="col-lg-12">
                     <div class="col-lg-4">
-                        <p>Men:</p>
+                        Men:
                         <div style="font-family: Roboto-light">
                             <input type="checkbox" ng-model="skill1" id="skill1"> <label for="skill1">Barber</label>  <br>
                             <input type="checkbox" ng-model="skill2" id="skill2"> <label for="skill2">Freehand</label> <br>
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <p>Women:</p>
+                        Women:
                         <div style="">
                             <input type="checkbox" ng-model="skill8" id="skill8"> <label for="skill8">Classics</label>  <br>
                             <input type="checkbox" ng-model="skill9" id="skill9"> <label for="skill9">Dry cutting</label> <br>
