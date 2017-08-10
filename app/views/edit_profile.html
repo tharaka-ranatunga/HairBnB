@@ -1,8 +1,19 @@
-<div class="container" ng-controller="EditController" >
+<div class="container" ng-controller="EditController" ng-init="onInit()">
     <div class="col-xs-12" style="margin-top: 25px;">
+        <div class="col-xs-3">
+            <a href ng-click="profile(); resetAlertBoxes()" class="text-info">Profile</a><br>
+            <a href ng-click="payment(); resetAlertBoxes()" class="text-info">Payment</a><br>
+            <a href ng-click="password_reset(); resetAlertBoxes()" class="text-info">Account Security</a><br>
+            <a href ng-click="skills_jobtypes(); resetAlertBoxes()" class="text-info" ng-show="accSkills">Skills and Account types</a>
+        </div>
         <!--Alert Boxes-->
         <div class="col-xs-9" style="border-left: 1px solid lightgray">
-
+            <div class="alert alert-success" ng-show="success">
+                <strong>{{message}}</strong>
+            </div>
+            <div class="alert alert-danger" ng-show="danger">
+                <strong>{{message}}</strong>
+            </div>
             <!--<div class="alert alert-success" ng-show="!success">-->
             <!--<strong>Your password changed successfully!</strong>-->
             <!--</div>-->
@@ -13,8 +24,25 @@
             <!--<strong>{{message}}</strong>-->
             <!--</div>-->
             <!--Payment Options-->
+            <div  ng-show="payment_section">
+                <p><b>Set your PayPal email address</b></p>
+                <hr class="col-xs-12" style="margin-top: -5px; margin-bottom: -15px">
+                <div style="width: 400px;margin-top: 20px" class="center-block">
+                    <label for="paypal_email" class="control-label">PayPal Email</label>
+                    <input type="password" class="form-control" id="paypal_email" name="paypal_email" required>
+                </div>
+                <div style="margin-top: 30px; margin-bottom: 250px">
+                    <input type="button" class="btn btn-success" value="Save Changes" style="width: 150px; float: right">
+                </div>
+            </div>
             <!--Skills and Job Types-->
-            <div ng-show="true">
+            <div ng-show="skills_jobtype_section">
+                <div style="margin-left: 15px">
+                    <textarea id="description" ng-model="description" ng-change="updateDesLength(); reset_des_error()" style="resize: none; height: 200px" class="col-lg-12"></textarea>
+                    <p class="text-info" style="text-align: right"  ng-show="!chrLengthError"> {{characters}} characters remaining</p>
+                    <p style="color: red; text-align: right" ng-show="chrLengthError"> {{characters}} characters exceeded</p>
+                    <p style="color: red; text-align: right" ng-show="des_error">* Provide a description about yourself</p>
+                </div>
                 <p><b>Set your account type</b></p>
                 <hr class="col-xs-12" style="margin-top: -5px; margin-bottom: -15px">
                 <fieldset class="checkboxes" style="margin-left: -22px; margin-top: -10px">
@@ -55,16 +83,43 @@
                 </div>
             </div>
             <!--Profile Option-->
-            <div ng-show="false">
-                <div >
+            <div ng-show="profile_reset_section">
+                <p><b>Change Profile Picture</b></p>
+                <hr class="col-xs-12" style="margin-top: -5px">
+                <div class="col-xs-12">
+                    <img src="assets/img/default_profile_pic.png" style="height: 140px; margin-bottom: 10px; margin-left: 30px">
+                    <div class="form-inline">
+                        <div class="form-group"style="margin-top: 15px">
+                            <input type="file" name="files[]" multiple>
+                        </div>
+                    </div>
+                </div>
+                <p style="margin-top: 250px"><b>Change Banner Pictures</b></p>
+                <hr class="col-xs-12" style="margin-top: -5px">
+                <div style="margin-left: 15px">
+                    <form>
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <input type="file" name="files[]" multiple>
+                            </div>
+                        </div>
+                    </form>
+                    <div style="margin-top: 20px">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-success"><span class="badge alert-success pull-right">Success</span>image-01.jpg</a>
+                            <a href="#" class="list-group-item list-group-item-success"><span class="badge alert-success pull-right">Success</span>image-02.jpg</a>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="accDescription">
                     <p style="margin-top: 30px"><b>Account Description</b></p>
                     <hr class="col-xs-12" style="margin-top: -5px">
-                    <div style="margin-left: 15px">
-                        <textarea id="description" ng-model="description" ng-change="updateDesLength(); reset_des_error()" style="resize: none; height: 200px" class="col-lg-12"></textarea>
-                        <p class="text-info" style="text-align: right"  ng-show="!chrLengthError"> {{characters}} characters remaining</p>
-                        <p style="color: red; text-align: right" ng-show="chrLengthError"> {{characters}} characters exceeded</p>
-                        <p style="color: red; text-align: right" ng-show="des_error">* Provide a description about yourself</p>
-                    </div>
+                    <!--<div style="margin-left: 15px">-->
+                        <!--<textarea id="description" ng-model="description" ng-change="updateDesLength(); reset_des_error()" style="resize: none; height: 200px" class="col-lg-12"></textarea>-->
+                        <!--<p class="text-info" style="text-align: right"  ng-show="!chrLengthError"> {{characters}} characters remaining</p>-->
+                        <!--<p style="color: red; text-align: right" ng-show="chrLengthError"> {{characters}} characters exceeded</p>-->
+                        <!--<p style="color: red; text-align: right" ng-show="des_error">* Provide a description about yourself</p>-->
+                    <!--</div>-->
                 </div>
                 <hr class="col-xs-12" style="margin-top: -5px">
                 <div>
@@ -72,5 +127,43 @@
                 </div>
             </div>
             <!--Account Privacy Options-->
+            <div ng-show="password_reset_section">
+                <p><b>Change your passwords</b></p>
+                <hr class="col-xs-12" style="margin-top: -5px">
+                <form name="change_pass">
+                    <div class="form-group center-block" style="width: 350px;">
+                        <div ng-class="{'has-error' : ((change_pass.current_pass.$error.required) && (submitted))}">
+                            <label for="current_pass" class="control-label">Current Password</label>
+                            <input type="password" class="form-control" id="current_pass" name="current_pass" required
+                                   ng-model="password"
+                                   ng-change="resetSubmitted(); validate()">
+                            <small class="help-block" ng-show="(change_pass.current_pass.$error.required) && (submitted)">Current password is required</small>
+                        </div>
+                    </div>
+                    <div class="form-group center-block" style="width: 350px;">
+                        <div ng-class="{'has-error' : ((change_pass.new_pass.$error.required) && (submitted)) || new_password_chr_error}">
+                            <label for="new_pass" class="control-label">New Password</label>
+                            <input type="password" class="form-control" id="new_pass" name="new_pass" required
+                                   ng-model="newPassword"
+                                   ng-change="resetSubmitted(); validate()">
+                            <small class="help-block" ng-show="(change_pass.new_pass.$error.required) && (submitted)">Password is required</small>
+                            <small class="help-block" ng-show="new_password_chr_error">Password must contain at least 8 characters</small>
+                        </div>
+                    </div>
+                    <div class="form-group center-block" style="width: 350px;">
+                        <div ng-class="{'has-error' : ((change_pass.re_new_pass.$error.required) && (submitted)) || ((reNewPassword!==newPassword) && repass)}">
+                            <label for="re_new_pass" class="control-label">Retype New Password</label>
+                            <input type="password" class="form-control" id="re_new_pass" name="re_new_pass" required
+                                   ng-model="reNewPassword"
+                                   ng-change="resetSubmitted(); setRePass(); validate()">
+                            <small class="help-block" ng-show="(change_pass.re_new_pass.$error.required) && (submitted)">Retype your password</small>
+                            <small class="help-block" ng-show="(reNewPassword!==newPassword) && repass">Password is not match</small>
+                        </div>
+                    </div>
+                    <input type="button" class="btn btn-success" value="Change Password" style="width: 150px; float: right; margin-bottom: 40px"
+                           ng-click="changePassword()">
+                </form>
+            </div>
         </div>
-    </div></div>
+    </div>
+</div>
