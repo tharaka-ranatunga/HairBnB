@@ -41,7 +41,6 @@ describe('Hairbnb Testing', function() {
         expect(message).toEqual('This email already registered');
     });
 
-
     it('should sign in the user', function() {
         browser.get('http://localhost:63342/HairBnB/app/views/#!/');
         // var signin_button = element(by.css('.modal.fade #signin'))
