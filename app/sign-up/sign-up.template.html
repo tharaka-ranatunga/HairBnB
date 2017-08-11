@@ -1,5 +1,5 @@
-<div class="register">
-    <div class="modal fade " id="signup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+
+<div class="modal fade " id="signup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
          aria-hidden="true" >
         <div class="modal-dialog" style="max-width: 500px; display: flex; min-height: 70vh;align-items: center">
             <div class="modal-content">
@@ -31,7 +31,7 @@
                                            ng-change="testt(); $ctrl.validation()" ng-model="$ctrl.email"
                                            id="email" placeholder="johndoe@example.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
 
-                                    <p ng-show="exists" style="color: red">This email already registered</p>
+                                    <p ng-show="exists" style="color: red" id="signup_message">This email already registered</p>
                                     <p ng-show="emailInvalid" style="color: red">This email is not valid</p>
                                     <img src="http://wiki.pandorafms.com/images/d/d6/Yes_tick.png" alt="" style="float: right; margin-top: -28px; margin-right: 8px" ng-show="!(signup_form.email.$error.email) && email_error" >
                                 </div>
@@ -75,7 +75,6 @@
 
         </div>
     </div>
-</div>
 <script>
     $(document).ready(function(){
         $('[data-toggle="popover"]').popover();
